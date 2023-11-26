@@ -17,6 +17,11 @@ go env -w CGO_ENABLED=1
 go mod download
 go run ./...
 ```
+configurasi github akun
+```
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+```
 
 push code
 ```
