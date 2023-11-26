@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delivery and Package Booking</title>
+    <link rel="stylesheet" href="/css/delivery.css">
+</head>
+<body>
+    {{ include "header" }}
+    <div class="container">
+        <h1>UNIQ Delivery</h1>
+        <form id="bookingForm">
+            <div class="form-item">
+                <label for="senderCity">Kota Pengirim:</label>
+                <input type="text" id="senderCity" name="senderCity" required>
+            </div>
+            <div class="form-item">
+                <label for="senderAddress">Alamat Pengirim:</label>
+                <input type="text" id="senderAddress" name="senderAddress" required>
+            </div>
+            <div class="form-item">
+                <label for="destinationCity">Kota Tujuan:</label>
+                <input type="text" id="destinationCity" name="destinationCity" required>
+            </div>
+            <div class="form-item">
+                <label for="destinationAddress">Alamat Tujuan:</label>
+                <input type="text" id="destinationAddress" name="destinationAddress" required>
+            </div>
+            <div class="form-item">
+                <label for="deliveryDate">Tanggal Pengiriman:</label>
+                <input type="date" id="deliveryDate" name="deliveryDate" required>
+            </div>
+            <div class="form-item">
+                <label for="packageQuantity">Jumlah Paket:</label>
+                <input type="number" id="packageQuantity" name="packageQuantity" required>
+            </div>
+            <div class="form-item">
+                <label for="packageWeight">Berat Paket (kg):</label>
+                <input type="number" id="packageWeight" name="packageWeight" required>
+            </div>
+            <div class="form-item">
+                <button type="button" onclick="calculatePrice()">Hitung Harga Paket</button>
+            </div>
+        </form>
+        <div id="priceResult"></div>
+    </div>
+    <script src="/js/delivery.js"></script>
+</body>
+</html>

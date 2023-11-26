@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="css/login.css">
+    <link rel="stylesheet" href="css/st">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    {{ include "header" }}
+<div class="container">
+    <form action="/login" method="post">
+        <label for="email"><b>Email</b></label>
+        <input type="text" id="email" placeholder="Enter Email" name="email" required>
+
+        <label for="password"><b>Password</b></label>
+        <div class="password-input">
+            <input type="password" id="password" placeholder="Enter Password" name="password" required>
+            <span class="toggle-password"><i class="fa-regular fa-eye"></i></span>
+        </div>
+
+        <button type="submit">Login</button>
+    </form>
+    <div class="form-item">
+        <p>If you don't have an account, <a href="/register">REGISTER</a></p>
+    </div>
+</div>
+
+<script>
+    const togglePassword = document.querySelector('.toggle-password i');
+    const passwordField = document.getElementById('password');
+
+    togglePassword.addEventListener('click', function () {
+        togglePasswordField(passwordField);
+    });
+
+    function togglePasswordField(field) {
+        const type = field.getAttribute('type') === 'password' ? 'text' : 'password';
+        field.setAttribute('type', type);
+        togglePassword.classList.toggle('fa-eye-slash');
+        togglePassword.classList.toggle('fa-eye');
+    }
+</script>
+
+</body>
+</html>

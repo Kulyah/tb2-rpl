@@ -1,0 +1,89 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000000;
+}
+
+.container {
+    max-width: 400px; 
+    margin: 50px auto;
+    background-color: rgb(47, 151, 172); 
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    transition: border-color 0.3s ease;
+    box-sizing: border-box;
+    margin-bottom: 8px;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(44, 169, 157);
+    color: #000000;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #00ffdd;
+}
+
+.form-item {
+    margin-top: 20px;
+}
+p {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 15px;
+}
+
+a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: rgb(183, 17, 17);
+}
+.password-input {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.password-input input[type="password"] {
+    width: calc(100% - 22px);
+}
+
+.toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 1px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #000;
+    font-size: 14px;
+}

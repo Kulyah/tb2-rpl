@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form For Tekstil Company</title>
+    <link rel="stylesheet" href="css/regist.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    {{ include "header" }}
+    <div class="container">
+        <h1>REGISTER</h1>
+        <form action="/register" method="POST">
+            <div class="form-item">
+                <label for="fname">Full Name:</label>
+                <input type="text" id="fname" name="fname" required>
+            </div>
+            <div class="form-item">
+                <label for="id">Identification Number:</label>
+                <input type="text" id="id" name="id" required>
+            </div>
+            <div class="form-item">
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" name="dob" required>
+            </div>
+            <div class="form-item">
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender" required>
+                    <option value="" disabled selected>Select your gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+            <div class="form-item">
+                <label for="phone">Phone Number:</label>
+                <input type="text" id="phone" name="phone" required>
+            </div>
+            <div class="form-item">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-item">
+                <label for="password">Password:</label>
+                <div class="password-input">
+                    <input type="password" id="password" name="password" minlength="6" required>
+                    <span class="toggle-password"><i class="fa-regular fa-eye"></i></span>
+                </div>
+            </div>
+            <div class="form-item">
+                <label for="cpassword">Confirm Password:</label>
+                <div class="password-input">
+                    <input type="password" id="cpassword" name="cpassword" minlength="6" required>
+                    <span class="toggle-cpassword"><i class="fa-regular fa-eye"></i></span>
+                </div>
+            </div>
+            <div class="form-item">
+                <input type="submit" value="Register">
+            </div>
+        </form>
+        <div class="form-item">
+            <p>If you already have an account, <a href="/login">LOGIN</a></p>
+        </div>
+    </div>
+    <script>
+        const togglePassword = document.querySelector('.toggle-password');
+        const toggleCPassword = document.querySelector('.toggle-cpassword');
+        const passwordField = document.getElementById('password');
+        const cpasswordField = document.getElementById('cpassword');
+    
+        togglePassword.addEventListener('click', function () {
+            togglePasswordField(passwordField, togglePassword);
+        });
+    
+        toggleCPassword.addEventListener('click', function () {
+            togglePasswordField(cpasswordField, toggleCPassword);
+        });
+    
+        function togglePasswordField(field, toggleElement) {
+            const type = field.getAttribute('type') === 'password' ? 'text' : 'password';
+            field.setAttribute('type', type);
+            toggleElement.querySelector('i').classList.toggle('fa-eye');
+            toggleElement.querySelector('i').classList.toggle('fa-eye-slash');
+        }
+    </script>
+</body>
+</html>
