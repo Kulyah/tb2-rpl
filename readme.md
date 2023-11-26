@@ -5,6 +5,7 @@
 - download gcc https://sourceforge.net/projects/tdm-gcc/
 
 download source code
+buka git bash terus ketik
 ```
 git clone https://github.com/Kulyah/tb2-rpl.git
 ```
