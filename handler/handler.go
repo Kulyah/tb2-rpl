@@ -153,3 +153,11 @@ func (h *Handler) DeliveryPage(c *gin.Context) {
 		"User": user,
 	})
 }
+
+func (h *Handler) AdminDashboard(c *gin.Context) {
+	user := h.getUser(c)
+
+	c.HTML(200, "admin_dashboard.html", gin.H{
+		"User": user,
+	})
+}

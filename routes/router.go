@@ -20,6 +20,7 @@ func Init(r *gin.Engine, db *gorm.DB) {
 	r.GET("/about", handler.AboutPage)
 	r.GET("/contact", handler.ContactPage)
 	r.GET("/delivery", handler.DeliveryPage)
+	r.GET("/admindashboard", handler.AdminDashboard)
 
 	// 404
 	r.NoRoute(func(c *gin.Context) {
