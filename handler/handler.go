@@ -177,3 +177,10 @@ func (h *Handler) Profile(c *gin.Context) {
 		"User": user,
 	})
 }
+func (h *Handler) ManageUser(c *gin.Context) {
+	user := h.getUser(c)
+
+	c.HTML(200, "manageuser.html", gin.H{
+		"User": user,
+	})
+}
