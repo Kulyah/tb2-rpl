@@ -7,7 +7,7 @@
 download source code
 ```
 git clone https://github.com/Kulyah/tb2-rpl.git
-``
+```
 
 buka projek di vscode
 terus jalanin
