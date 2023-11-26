@@ -34,3 +34,26 @@ const userType = 'Admin'; // Change this based on the logged-in user type
 
 // Update the welcome message based on the user type
 document.getElementById('userType').innerText = userType;
+
+// profile.js
+
+// Get all elements with class "has-submenu"
+const submenuToggles = document.querySelectorAll('.has-submenu');
+
+// Loop through each "has-submenu" element
+submenuToggles.forEach(toggle => {
+  // Add click event listener to each "has-submenu" element
+  toggle.addEventListener('click', function() {
+    // Toggle the "active" class to display/hide the submenu
+    this.parentElement.querySelector('.submenu').classList.toggle('active');
+  });
+});
+
+// Close the submenu when clicking outside
+document.addEventListener('click', function(e) {
+  if (!e.target.classList.contains('has-submenu')) {
+    submenuToggles.forEach(toggle => {
+      toggle.parentElement.querySelector('.submenu').classList.remove('active');
+    });
+  }
+});
