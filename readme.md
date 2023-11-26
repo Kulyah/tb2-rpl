@@ -7,6 +7,7 @@
 buka projek di vscode
 terus jalanin
 ```
+go env -w CGO_ENABLED=1
 go mod download
 go run ./...
 ```
