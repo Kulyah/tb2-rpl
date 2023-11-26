@@ -35,7 +35,7 @@ const userType = 'Admin'; // Change this based on the logged-in user type
 // Update the welcome message based on the user type
 document.getElementById('userType').innerText = userType;
 
-// profile.js
+// profile.js (lanjutan)
 
 // Get all elements with class "has-submenu"
 const submenuToggles = document.querySelectorAll('.has-submenu');
@@ -56,4 +56,11 @@ document.addEventListener('click', function(e) {
       toggle.parentElement.querySelector('.submenu').classList.remove('active');
     });
   }
+});
+
+document.querySelectorAll('.dropdown-menu a').forEach(item => {
+  item.addEventListener('click', event => {
+    // Lakukan sesuatu saat link dropdown di-klik
+    alert(`Anda memilih: ${event.target.textContent}`);
+  });
 });

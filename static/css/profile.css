@@ -6,70 +6,39 @@ html, body {
 
 /* Navbar styles */
 .navbar {
-  background-color: #333;
-  color: white;
-  text-align: center;
-  padding: 10px 0;
+  background-color: #343a40; /* Warna background navbar */
 }
 
-.navbar-list {
-  list-style: none;
-  display: flex;
-  justify-content: space-around;
+.navbar-brand {
+  color: white; /* Warna teks untuk brand */
 }
 
-.navbar-list a {
-  text-decoration: none;
-  color: white;
-  padding: 8px 15px;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
+.navbar-nav .nav-link {
+  color: white; /* Warna teks untuk link */
 }
 
-.navbar-list a.active {
-  background-color: #555;
+.navbar-nav .nav-link:hover {
+  color: #f8f9fa; /* Warna teks saat link dihover */
 }
 
-.navbar-list a:hover {
-  background-color: #555;
-}
-.has-submenu:hover .submenu {
-  display: block;
-}
-
-.submenu.active {
-  display: block;
-}
-.submenu {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+/* Untuk mengubah warna latar belakang item dropdown saat dihover */
+.dropdown-menu .dropdown-item:hover {
+  background-color: #f8f9fa;
+  color: #212529;
 }
 
-.submenu li {
-  padding: 10px 15px;
-  border-bottom: 1px solid #ddd;
-}
-
-.navbar-list li:hover .submenu {
-  display: block;
-}
-
-.submenu li:hover {
-  background-color: #ddd;
-}
-/* Welcome message styles */
+/* Style for welcome message */
 .welcome-message {
   text-align: center;
-  margin-top: 50px;
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f5f5f5;
 }
 
 .welcome-text {
-  font-size: 36px;
+  font-size: 24px;
   font-weight: bold;
-  color: #3498db;
+  color: #333;
 }
 
 /* Profile card styles */
@@ -126,7 +95,7 @@ html, body {
 }
 
 .info input {
-  width: 100%;
+  width: calc(100% - 16px); /* Adjust width */
   padding: 8px;
   margin-bottom: 15px;
   border: 1px solid #ddd;
