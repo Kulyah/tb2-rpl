@@ -1,6 +1,8 @@
 package db
 
 import (
+	"fmt"
+
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/sqlite"
 )
@@ -9,6 +11,7 @@ func InitDB() *gorm.DB {
 	// Connect to the SQLite database
 	db, err := gorm.Open("sqlite3", "test.db")
 	if err != nil {
+		fmt.Println(err)
 		panic("Failed to connect to the database")
 	}
 	err = db.DB().Ping()
