@@ -161,3 +161,19 @@ func (h *Handler) AdminDashboard(c *gin.Context) {
 		"User": user,
 	})
 }
+
+func (h *Handler) UserDashboard(c *gin.Context) {
+	user := h.getUser(c)
+
+	c.HTML(200, "user_dashboard.html", gin.H{
+		"User": user,
+	})
+}
+
+func (h *Handler) Profile(c *gin.Context) {
+	user := h.getUser(c)
+
+	c.HTML(200, "profile.html", gin.H{
+		"User": user,
+	})
+}
