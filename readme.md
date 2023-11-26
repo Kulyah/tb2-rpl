@@ -1,3 +1,9 @@
+# Contributors
+- [@amarps](https://github.com/amarps)
+- [@OrionShii](https://github.com/OrionShii)
+- [@asrulfami](https://github.com/asrulfami)
+- [@sheesheeee](https://github.com/sheesheeee)
+
 # Cara Jalanin Aplikasi
 - download go https://go.dev/doc/install
 - downlaod git https://git-scm.com/downloads
