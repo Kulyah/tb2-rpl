@@ -193,3 +193,19 @@ func (h *Handler) MPelanggan(c *gin.Context) {
 		"User": user,
 	})
 }
+
+func (h *Handler) MDriver(c *gin.Context) {
+	user := h.getUser(c)
+
+	c.HTML(200, "mdriver.html", gin.H{
+		"User": user,
+	})
+}
+
+func (h *Handler) MKendaraan(c *gin.Context) {
+	user := h.getUser(c)
+
+	c.HTML(200, "mkendaraan.html", gin.H{
+		"User": user,
+	})
+}

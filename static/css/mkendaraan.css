@@ -21,49 +21,40 @@ html, body {
     color: #f8f9fa; /* Link text color on hover */
   }
   
-  /* Additional styles for user management table */
-  .user-table {
+  /* Additional styles for vehicle management table */
+  .vehicle-table {
     width: 80%;
-    margin-top: 20px;
+    margin: 20px auto;
     border-collapse: collapse;
-    margin-left: auto;
-    margin-right: auto;
   }
   
-  .user-table th,
-  .user-table td {
+  .vehicle-table th,
+  .vehicle-table td {
     border: 1px solid #ddd;
     padding: 8px;
     text-align: left;
   }
   
-  .user-table th {
+  .vehicle-table th {
     background-color: #f5f5f5;
   }
   
   .add-btn {
-    display: block;
-    margin: 0 auto;
+    margin-bottom: 10px;
     padding: 8px 16px;
     background-color: #007bff;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    display: block;
+    margin: 20px auto;
   }
   
-  .content {
+  .vehicle-container {
     text-align: center;
-    margin-top: 30px;
   }
-  
   h1 {
     text-align: center;
     margin-bottom: 20px;
   }
-  
-  .user-container {
-    width: 80%;
-    margin: 0 auto;
-  }
-  
