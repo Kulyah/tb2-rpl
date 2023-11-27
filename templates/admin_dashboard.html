@@ -1,127 +1,68 @@
-<!-- Admin Dashboard -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Meta tags and title -->
-  <!-- Link to dashboard-styles.css -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
   <link rel="stylesheet" href="/css/dashboard.css">
 </head>
 <body>
-  <header class="header">
-    <div class="container">
-      <h1>Welcome, Admin!</h1>
-      <!-- Additional admin-specific header content -->
-    </div>
-  </header>
+  <div class="dashboard-container">
+    <nav class="sidebar">
+      <ul>
+        <li><a href="#profile">Profile</a></li>
+        <li><a href="#dashboard">Dashboard</a></li>
+        <li><a href="#manage">Manage</a></li>
+        <li><a href="#delivery">Delivery</a></li>
+      </ul>
+    </nav>
 
-  <nav class="sidebar">
-    <ul>
-      <li><a href="#manage-deliveries">Manage Deliveries</a></li>
-      <li><a href="#manage-users">Manage Users</a></li>
-      <li><a href="#manage-drivers">Manage Drivers</a></li>
-      <li><a href="#manage-accounts">Manage Accounts</a></li>
-      <!-- Add more admin-specific links -->
-    </ul>
-  </nav>
-
-  <main class="main-content">
-    <section id="manage-deliveries" class="dashboard-section">
-      <h2>Manage Deliveries</h2>
-      <table class="delivery-table">
-        <thead>
+    <main class="content">
+      <section id="profile" class="dashboard-section">
+        <h2>Profile</h2>
+        <table id="myTable">
           <tr>
-            <th>ID</th>
-            <th>Recipient</th>
-            <th>Address</th>
-            <th>Status</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Action</th>
           </tr>
-        </thead>
-        <tbody>
           <tr>
-            <td>1</td>
             <td>John Doe</td>
-            <td>123 Main St</td>
-            <td>In Progress</td>
+            <td>john@example.com</td>
+            <td><button onclick="deleteRow(this)">Delete</button></td>
           </tr>
-          <!-- Add more delivery rows as needed -->
-        </tbody>
-      </table>
-      <button class="action-button">Add New Delivery</button>
-    </section>
+        </table>
+        <button onclick="addRow()">Add Row</button>
+        
+      </section>
 
-    <section id="manage-users" class="dashboard-section">
-      <h2>Manage Users</h2>
-      <table class="user-table">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Role</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>Alice Johnson</td>
-            <td>alice@example.com</td>
-            <td>User</td>
-          </tr>
-          <!-- Add more user rows as needed -->
-        </tbody>
-      </table>
-      <button class="action-button">Add New User</button>
-    </section>
+      <section id="dashboard" class="dashboard-section">
+        <h2>Dashboard - Package Delivery Status</h2>
+        <table class="dashboard-table">
+          <!-- Table content for package delivery status -->
+        </table>
+        <button onclick="addRow('dashboard-table')">Add Package</button>
+      </section>
 
-    <section id="manage-drivers" class="dashboard-section">
-      <h2>Manage Drivers</h2>
-      <table class="driver-table">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>License Number</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>David Smith</td>
-            <td>12345</td>
-            <td>Active</td>
-          </tr>
-          <!-- Add more driver rows as needed -->
-        </tbody>
-      </table>
-      <button class="action-button">Add New Driver</button>
-    </section>
+      <section id="manage" class="dashboard-section">
+        <h2>Manage</h2>
+        <!-- Manage content -->
+        <table class="manage-table">
+          <!-- Table content for managing drivers, users, packages -->
+        </table>
+        <button onclick="addRow('manage-table')">Add Entry</button>
+      </section>
 
-    <section id="manage-accounts" class="dashboard-section">
-      <h2>Manage Accounts</h2>
-      <table class="account-table">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Username</th>
-            <th>Email</th>
-            <th>Role</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>admin123</td>
-            <td>admin@example.com</td>
-            <td>Admin</td>
-          </tr>
-          <!-- Add more account rows as needed -->
-        </tbody>
-      </table>
-      <button class="action-button">Add New Account</button>
-    </section>
-  </main>
+      <section id="delivery" class="dashboard-section">
+        <h2>Delivery - Manage Delivery Status</h2>
+        <table class="delivery-table">
+          <!-- Table content for managing delivery status -->
+        </table>
+        <button onclick="addRow('delivery-table')">Add Delivery</button>
+      </section>
+    </main>
+  </div>
 
-  <script src="dashboard-scripts.js"></script>
+  <script src="/js/dashboard.js"></script>
 </body>
 </html>
