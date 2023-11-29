@@ -1,17 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration Form For Tekstil Company</title>
-    <link rel="stylesheet" href="css/regist.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Contact Us - Tekstil Company</title>
+    <link rel="stylesheet" href="css/contact.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 </head>
+
 <body>
     {{ include "header" }}
+    <img src="../images/cooal.jpeg">
     <div class="container">
-        <h1>contact</h1>
-        <center><h2>Page Not Found</h2></center>
+        <div class="contact-info">
+            <h1>Contact Us</h1>
+            <h2>New Stone Orders</h2>
+            <p>Looking for high-quality stones for your projects? Contact us to place an order for our premium selection of stones. Let's build something amazing together!</p>
+
+            <p>Contact us now to discuss your stone requirements:</p>
+            <address class="address-container">
+                <strong>Tekstil Company</strong><br>
+                <i class="fas fa-map-marker-alt"></i>Jl. Raya, RT.4/RW.1, Meruya Sel<br>
+                <i class="fas fa-city"></i> Kec. Kembangan, Jakarta Barat, DKI Jakarta<br>
+                <i class="fas fa-mail-bulk"></i> ZIP Code: 11650<br>
+                <i class="fas fa-phone"></i> Phone: +62 (895) 3832-41172<br>
+                <i class="fas fa-envelope"></i> Email: info@tekstilcompany.com
+            </address>
+            
+        </div>
+
+        <div class="message-form">
+            <h2>Send Me</h2>
+            <p>Send us a message, and watch your ideas soar. We're here to catch every word, question, or inspiration you
+                have.</p>
+
+            <form action="/submit_form" method="post" id="contact-form">
+                <label for="firstName">First Name:</label>
+                <input type="text" id="firstName" name="firstName" required>
+
+                <label for="lastName">Last Name:</label>
+                <input type="text" id="lastName" name="lastName" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
     </div>
+</img>
 </body>
+
 </html>
