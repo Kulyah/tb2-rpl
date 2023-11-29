@@ -2,7 +2,7 @@
 let deliveryStatus = [
     // Sample data
     {
-      status: "In Transit",
+      status: "Completed",
       resi: "12345",
       address: "123 Main St",
       recipient: "John Doe",
@@ -11,6 +11,16 @@ let deliveryStatus = [
       purchaseDate: "2023-11-01",
       deliveryDate: "2023-11-07",
     },
+    {
+        status: "In Transit",
+        resi: "12345",
+        address: "123 Main St",
+        recipient: "Oyy Doe",
+        courier: "Express Delivery",
+        phone: "123-456-7890",
+        purchaseDate: "2023-11-01",
+        deliveryDate: "-",
+      },
     // Add more status data as needed
   ];
   
