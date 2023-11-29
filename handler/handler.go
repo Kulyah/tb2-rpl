@@ -217,3 +217,11 @@ func (h *Handler) MDelivery(c *gin.Context) {
 		"User": user,
 	})
 }
+
+func (h *Handler) DStatus(c *gin.Context) {
+	user := h.getUser(c)
+
+	c.HTML(200, "dstatus.html", gin.H{
+		"User": user,
+	})
+}
