@@ -1,13 +1,9 @@
-body {
-    background-color: #f4f4f4;
-    /* Background color for the entire page */
-}
+
 
 .container {
     display: flex;
     justify-content: space-between;
-    background-color: #fff;
-    /* Background color for the contact us section */
+    background-color:rgb(47, 151, 172);    /* Background color for the contact us section */
     padding: 20px;
     margin: 20px;
     border-radius: 8px;
