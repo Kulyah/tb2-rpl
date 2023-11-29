@@ -209,3 +209,11 @@ func (h *Handler) MKendaraan(c *gin.Context) {
 		"User": user,
 	})
 }
+
+func (h *Handler) MDelivery(c *gin.Context) {
+	user := h.getUser(c)
+
+	c.HTML(200, "mdelivery.html", gin.H{
+		"User": user,
+	})
+}
