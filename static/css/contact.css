@@ -1,8 +1,39 @@
-body{
-    height: 100px;
-    width: 100px;
+body {
+    background-color: #f4f4f4;
+    /* Background color for the entire page */
 }
 
+.container {
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    /* Background color for the contact us section */
+    padding: 20px;
+    margin: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact-info {
+    width: 45%;
+    /* Adjust the width as needed */
+}
+
+.message-form {
+    width: 45%;
+    /* Adjust the width as needed */
+}
+
+/* Additional styling for the Coal Industries section */
+.coal-industries {
+    width: 100%;
+    text-align: center;
+    background-color: #f4f4f4;
+    /* Background color for the Coal Industries section */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 #contact-form {
     width: 500px;
     margin: 0 auto;
@@ -26,7 +57,6 @@ body{
     color: #000;
     border: none;
 }
-/* ... (CSS yang sudah ada sebelumnya) ... */
 
 form {
     margin-top: 20px;
@@ -54,19 +84,54 @@ input[type="submit"] {
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    transition: background-color 0.3s ease; /* Efek transisi untuk tombol submit */
 }
 
 input[type="submit"]:hover {
     background-color: #45a049;
 }
+
+/* Efek transisi untuk elemen formulir */
+form label,
+form input,
+form textarea,
+form button {
+    transition: all 0.3s ease;
+}
+
+/* Efek focus untuk input dan textarea */
+form input:focus,
+form textarea:focus {
+    border: 2px solid #45a049;
+    outline: none;
+}
+
+/* Styling for contact information and message form */
 .contact-info h1,
 .message-form h2,
 .message-form label {
     font-family: 'Monaco', monospace; /* Ganti 'Monaco' dengan nama font monospace yang diinginkan */
+    text-align: center; /* Tengahkan teks */
 }
 
 .contact-info p,
 .message-form p {
     font-family: 'Monaco', monospace; /* Ganti 'Monaco' dengan nama font monospace yang diinginkan */
+    text-align: center; /* Tengahkan teks */
 }
 
+/* Styling for the address container */
+.address-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.address-container i {
+    margin-right: 10px;
+    margin-bottom: 5px; /* Tambahkan jarak ke bawah */
+}
+
+.address-container p {
+    margin-bottom: 8px;
+}
