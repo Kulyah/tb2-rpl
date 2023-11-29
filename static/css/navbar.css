@@ -1,41 +1,22 @@
-/* Reset default margin and padding */
-body, html {
-  margin: 0;
-  padding: 0;
+/* Custom Navbar Styles */
+.sidebar {
+  background-color: #343a40;
+  height: 100vh; /* Set the height of the sidebar to full viewport height */
+  padding-top: 20px;
+  color: #ffffff;
 }
 
-/* Navbar styles */
-.navbar {
-  background-color: #343a40; /* Navbar background color */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
+.sidebar .nav-link {
+  padding: 8px 15px;
+  color: #ffffff;
 }
 
-.logo {
-  color: #ffffff; /* Logo text color */
-  font-size: 24px;
-  text-decoration: none;
+.sidebar .nav-link:hover {
+  background-color: #f8f9fa;
+  color: #343a40;
 }
 
-.nav-links {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-}
-
-.nav-links li {
-  margin-right: 15px; /* Spacing between navbar items */
-}
-
-.nav-links a {
-  color: #ffffff; /* Navbar link text color */
-  text-decoration: none;
-  transition: color 0.3s ease; /* Smooth transition on hover */
-}
-
-.nav-links a:hover {
-  color: #f8f9fa; /* Navbar link text color on hover */
+/* Custom Styling for Main Content */
+main {
+  padding: 20px; /* Add padding to the main content */
 }
