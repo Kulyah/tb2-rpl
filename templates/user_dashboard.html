@@ -4,34 +4,69 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>User Dashboard - Coal Industries</title>
-  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/userprofile.css">
 </head>
 <body>
-  <header class="header">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-      <h1>Welcome, User!</h1>
-      <!-- Additional user-specific header content -->
+      <a class="navbar-brand" href="user_dashboard.html">User Profile</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="user_dashboard.html">Profile</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownDelivery" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Delivery
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownDelivery">
+              <a class="dropdown-item" href="userd.html">Delivery Status</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Logout</a>
+          </li>
+        </ul>
+      </div>
     </div>
-  </header>
-
-  <nav class="sidebar">
-    <ul>
-      <li><a href="#track-package">Track Package</a></li>
-      <li><a href="#manage-account">Manage Account</a></li>
-      <!-- Add more user-specific links -->
-    </ul>
   </nav>
+  
+  <div class="container">
+    <div class="welcome-message">
+      <p class="welcome-text">Welcome <span id="userType">User</span></p>
+    </div>
 
-  <main class="main-content">
-    <section id="track-package" class="dashboard-section">
-      <!-- Content for tracking package -->
-    </section>
+    <div class="profile-container">
+      <div class="profile">
+        <div class="profile-info">
+          <label for="profile-picture" class="profile-picture-label">
+            <img src="images/blank.png" alt="Profile Picture" class="profile-picture">
+            <input type="file" id="profile-picture" accept="image/*" style="display: none;" onchange="displayImage(this)">
+          </label>
+          <div class="info">
+            <button class="edit-btn" onclick="enableEdit()">Edit</button>
+            <button class="save-btn" onclick="saveChanges()">Save</button>
+            <form id="profileForm">
+              <label for="name">Name:</label>
+              <input type="text" id="name" value="Orion" disabled>
+              <label for="email">Email:</label>
+              <input type="email" id="email" value="yahihiu@gmail.com" disabled>
+              <label for="phone">Phone:</label>
+              <input type="tel" id="phone" value="0821586936" disabled>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-    <section id="manage-account" class="dashboard-section">
-      <!-- Content for managing account -->
-    </section>
-  </main>
-
-  <script src="dashboard-scripts.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="/js/userprofile.js"></script>
 </body>
 </html>

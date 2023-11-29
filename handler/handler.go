@@ -161,3 +161,75 @@ func (h *Handler) AdminDashboard(c *gin.Context) {
 		"User": user,
 	})
 }
+
+func (h *Handler) UserDashboard(c *gin.Context) {
+	user := h.getUser(c)
+
+	c.HTML(200, "user_dashboard.html", gin.H{
+		"User": user,
+	})
+}
+
+func (h *Handler) Profile(c *gin.Context) {
+	user := h.getUser(c)
+
+	c.HTML(200, "profile.html", gin.H{
+		"User": user,
+	})
+}
+
+func (h *Handler) ManageUser(c *gin.Context) {
+	user := h.getUser(c)
+
+	c.HTML(200, "manageuser.html", gin.H{
+		"User": user,
+	})
+}
+
+func (h *Handler) MPelanggan(c *gin.Context) {
+	user := h.getUser(c)
+
+	c.HTML(200, "mpelanggan.html", gin.H{
+		"User": user,
+	})
+}
+
+func (h *Handler) MDriver(c *gin.Context) {
+	user := h.getUser(c)
+
+	c.HTML(200, "mdriver.html", gin.H{
+		"User": user,
+	})
+}
+
+func (h *Handler) MKendaraan(c *gin.Context) {
+	user := h.getUser(c)
+
+	c.HTML(200, "mkendaraan.html", gin.H{
+		"User": user,
+	})
+}
+
+func (h *Handler) MDelivery(c *gin.Context) {
+	user := h.getUser(c)
+
+	c.HTML(200, "mdelivery.html", gin.H{
+		"User": user,
+	})
+}
+
+func (h *Handler) DStatus(c *gin.Context) {
+	user := h.getUser(c)
+
+	c.HTML(200, "dstatus.html", gin.H{
+		"User": user,
+	})
+}
+
+func (h *Handler) UserD(c *gin.Context) {
+	user := h.getUser(c)
+
+	c.HTML(200, "userd.html", gin.H{
+		"User": user,
+	})
+}
