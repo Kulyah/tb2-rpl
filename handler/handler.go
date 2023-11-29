@@ -24,10 +24,30 @@ func NewHandler(db *gorm.DB) *Handler {
 func (h *Handler) IndexPage(c *gin.Context) {
 	user := h.getUser(c)
 
-	fmt.Println(user)
+	if user == nil {
+		c.HTML(200, "index.html", gin.H{
+			"User": user,
+		})
+		return
+	}
+
+	fmt.Println("role: ", user.Role)
+	if user.Role == "admin" {
+		c.HTML(200, "admin_dashboard.html", gin.H{
+			"User": user,
+		})
+		return
+	} else if user.Role == "basic" {
+		c.HTML(200, "user_dashboard.html", gin.H{
+			"User": user,
+		})
+		return
+	}
+
 	c.HTML(200, "index.html", gin.H{
 		"User": user,
 	})
+	return
 }
 
 // register handler post
@@ -59,6 +79,7 @@ func (h *Handler) Register(c *gin.Context) {
 		Gender:   gender,
 		Phone:    phone,
 		Password: string(hashedPassword),
+		Role:     "basic",
 	}
 	err = h.db.Create(&user).Error
 	if err != nil {
@@ -103,6 +124,7 @@ func (h *Handler) Login(c *gin.Context) {
 // logout handler get
 func (h *Handler) Logout(c *gin.Context) {
 	sessions := sessions.Default(c)
+	fmt.Println("@@@@@@@@ logout hit @@@@@@@@")
 	sessions.Clear()
 	sessions.Save()
 
@@ -124,9 +146,15 @@ func (h *Handler) getUser(c *gin.Context) *entity.User {
 	userId := sessions.Get("userId")
 	var user *entity.User
 	if userId != nil {
-		h.db.Where("id = ?", 4).First(user)
+		fmt.Println("getting user")
+		tempUser := &entity.User{}
+		q := h.db.Where("id = ?", userId).First(&tempUser)
+		if q.Error != nil {
+			fmt.Println("err:", q.Error)
+		}
+
+		user = tempUser
 	}
-	fmt.Println(user)
 	return user
 }
 
