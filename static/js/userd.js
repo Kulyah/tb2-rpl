@@ -1,72 +1,70 @@
 // Sample delivery status data (can be retrieved from a database or API)
-let deliveryStatuses = [
-    { noResi: 'R12345', alamatPenerima: '123 Main St', namaPenerima: 'Alice', namaKurir: 'John Doe', noHpKurir: '123-456-7890', tanggalPembelian: '2023-01-15', tanggalSampai: '2023-01-20' },
-    { noResi: 'R67890', alamatPenerima: '456 Elm St', namaPenerima: 'Bob', namaKurir: 'Jane Smith', noHpKurir: '456-789-0123', tanggalPembelian: '2023-02-10', tanggalSampai: '2023-02-15' }
-    // Add more delivery status data as needed
+let deliveryStatus = [
+    // Sample data
+    {
+      status: "In Transit",
+      resi: "12345",
+      address: "123 Main St",
+      recipient: "John Doe",
+      courier: "Express Delivery",
+      phone: "123-456-7890",
+      purchaseDate: "2023-11-01",
+      deliveryDate: "2023-11-07",
+    },
+    // Add more status data as needed
   ];
   
-  // Function to display delivery statuses in the table
-  function displayDeliveryStatuses() {
-    const tbody = document.querySelector('.status-table tbody');
+  // Function to display delivery status in the table
+  function displayDeliveryStatus() {
+    const statusBody = document.getElementById('status-body');
+    statusBody.innerHTML = '';
   
-    // Clear existing data
-    tbody.innerHTML = '';
-  
-    // Populate the table with delivery status data
-    deliveryStatuses.forEach(status => {
+    deliveryStatus.forEach(status => {
       const row = document.createElement('tr');
       row.innerHTML = `
-        <td>${status.noResi}</td>
-        <td>${status.alamatPenerima}</td>
-        <td>${status.namaPenerima}</td>
-        <td>${status.namaKurir}</td>
-        <td>${status.noHpKurir}</td>
-        <td>${status.tanggalPembelian}</td>
-        <td>${status.tanggalSampai}</td>
+        <td>${status.status}</td>
+        <td>${status.resi}</td>
+        <td>${status.address}</td>
+        <td>${status.recipient}</td>
+        <td>${status.courier}</td>
+        <td>${status.phone}</td>
+        <td>${status.purchaseDate}</td>
+        <td>${status.deliveryDate}</td>
         <td>
-          <button class="delete-btn">Delete</button>
+          <button class="delete-btn" onclick="deleteStatus('${status.resi}')">Delete</button>
         </td>
       `;
-      tbody.appendChild(row);
+      statusBody.appendChild(row);
     });
   }
   
-  // Function to add a new delivery status
+  // Function to add new delivery status
   function addDeliveryStatus(newStatus) {
-    deliveryStatuses.push(newStatus);
-    displayDeliveryStatuses();
+    deliveryStatus.push(newStatus);
+    displayDeliveryStatus();
   }
   
-  // Function to delete a delivery status
-  function deleteDeliveryStatus(rowIndex) {
-    deliveryStatuses.splice(rowIndex, 1);
-    displayDeliveryStatuses();
-  }
-  
-  // Add event listener for the "Add Status" button
-  const addBtn = document.querySelector('.add-btn');
-  addBtn.addEventListener('click', () => {
+  // Function to add a new status (triggered by button click)
+  function addNewStatus() {
     const newStatus = {
-      noResi: 'R54321', // Example value, update with actual data
-      alamatPenerima: '789 Oak St', // Example value, update with actual data
-      namaPenerima: 'Charlie', // Example value, update with actual data
-      namaKurir: 'New Courier', // Example value, update with actual data
-      noHpKurir: '789-012-3456', // Example value, update with actual data
-      tanggalPembelian: '2023-03-05', // Example value, update with actual data
-      tanggalSampai: '2023-03-10' // Example value, update with actual data
+      status: "Pending",
+      resi: "67890",
+      address: "456 Elm St",
+      recipient: "Jane Smith",
+      courier: "Express Delivery",
+      phone: "456-789-0123",
+      purchaseDate: "2023-11-10",
+      deliveryDate: "2023-11-15"
     };
     addDeliveryStatus(newStatus);
-  });
+  }
   
-  // Add event listener for the "Delete" button (event delegation)
-  document.addEventListener('click', (event) => {
-    if (event.target.classList.contains('delete-btn')) {
-      const row = event.target.closest('tr');
-      const rowIndex = Array.from(row.parentNode.children).indexOf(row);
-      deleteDeliveryStatus(rowIndex);
-    }
-  });
+  // Function to delete a status
+  function deleteStatus(resi) {
+    deliveryStatus = deliveryStatus.filter(status => status.resi !== resi);
+    displayDeliveryStatus();
+  }
   
-  // Display delivery statuses when the page loads
-  displayDeliveryStatuses();
+  // Display delivery status when the page loads
+  displayDeliveryStatus();
   

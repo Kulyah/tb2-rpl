@@ -11,7 +11,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-          <a class="navbar-brand" href="userd.html">Delivery</a>
+          <a class="navbar-brand" href="userd.html">Deliver Status</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -37,7 +37,8 @@
       </nav>
 
       <h1>Delivery Status</h1>
-      <button class="add-btn">Add Status</button>
+
+      <button class="add-btn" onclick="addNewStatus()">Add Delivery Status</button>
     
       <div class="status-container">
         <table class="status-table">
@@ -48,14 +49,14 @@
               <th>Alamat Penerima</th>
               <th>Nama Penerima</th>
               <th>Nama Kurir</th>
-              <th>No Hp Kurir</th>
-              <th>Tanggal Pembelian Barang</th>
-              <th>Tanggal Barang Sampai</th>
+              <th>No HP Kurir</th>
+              <th>Tanggal Pembelian</th>
+              <th>Tanggal Sampai</th>
               <th>Action</th>
             </tr>
           </thead>
-          <tbody>
-            <!-- Status data will be displayed here -->
+          <tbody id="status-body">
+            <!-- Delivery status data will be displayed here -->
           </tbody>
         </table>
       </div>
