@@ -14,5 +14,6 @@ type User struct {
 	UniqId    string    `gorm:"type:varchar(100)"`
 	Phone     string    `gorm:"type:varchar(100)"`
 	Gender    string    `gorm:"type:varchar(100)"`
+	Role      string    `gorm:"type:varchar(100)"`
 	BirthDate time.Time `gorm:"type:date"`
 }
