@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"kerkomapp/entity"
 	"kerkomapp/render"
+	"strconv"
 
 	"github.com/gin-contrib/sessions"
 	"github.com/gin-gonic/gin"
@@ -260,4 +261,206 @@ func (h *Handler) UserD(c *gin.Context) {
 	c.HTML(200, "userd.html", gin.H{
 		"User": user,
 	})
+}
+
+func (h *Handler) AddStatus(c *gin.Context) {
+	user := h.getUser(c)
+
+	c.HTML(200, "addstatus.html", gin.H{
+		"User": user,
+	})
+}
+
+func (h *Handler) AddUser(c *gin.Context) {
+	user := h.getUser(c)
+
+	c.HTML(200, "adduser.html", gin.H{
+		"User": user,
+	})
+}
+
+func (h *Handler) AddPelanggan(c *gin.Context) {
+	user := h.getUser(c)
+
+	c.HTML(200, "addpelanggan.html", gin.H{
+		"User": user,
+	})
+}
+
+func (h *Handler) AddDriver(c *gin.Context) {
+	user := h.getUser(c)
+
+	c.HTML(200, "adddriver.html", gin.H{
+		"User": user,
+	})
+}
+
+func (h *Handler) AddKendaraan(c *gin.Context) {
+	user := h.getUser(c)
+
+	c.HTML(200, "addkendaraan.html", gin.H{
+		"User": user,
+	})
+}
+
+func (h *Handler) AddDelivery(c *gin.Context) {
+	user := h.getUser(c)
+
+	c.HTML(200, "adddelivery.html", gin.H{
+		"User": user,
+	})
+}
+
+func (h *Handler) UpdateStatus(c *gin.Context) {
+	user := h.getUser(c)
+
+	c.HTML(200, "updatestatus.html", gin.H{
+		"User": user,
+	})
+}
+
+func (h *Handler) UpdateUser(c *gin.Context) {
+	user := h.getUser(c)
+
+	c.HTML(200, "updateuser.html", gin.H{
+		"User": user,
+	})
+}
+
+func (h *Handler) UpdatePelanggan(c *gin.Context) {
+	user := h.getUser(c)
+
+	c.HTML(200, "updatepelanggan.html", gin.H{
+		"User": user,
+	})
+}
+
+func (h *Handler) UpdateDriver(c *gin.Context) {
+	user := h.getUser(c)
+
+	c.HTML(200, "updatedriver.html", gin.H{
+		"User": user,
+	})
+}
+
+func (h *Handler) UpdateKendaraan(c *gin.Context) {
+	user := h.getUser(c)
+
+	c.HTML(200, "updatekendaraan.html", gin.H{
+		"User": user,
+	})
+}
+
+func (h *Handler) UpdateDelivery(c *gin.Context) {
+	user := h.getUser(c)
+
+	c.HTML(200, "updatedelivery.html", gin.H{
+		"User": user,
+	})
+}
+
+func (h *Handler) DeleteStatus(c *gin.Context) {
+	user := h.getUser(c)
+
+	c.HTML(200, "deletestatus.html", gin.H{
+		"User": user,
+	})
+}
+
+func (h *Handler) DeleteUser(c *gin.Context) {
+	user := h.getUser(c)
+
+	c.HTML(200, "deleteuser.html", gin.H{
+		"User": user,
+	})
+}
+
+func (h *Handler) DeletePelanggan(c *gin.Context) {
+	user := h.getUser(c)
+
+	c.HTML(200, "deletepelanggan.html", gin.H{
+		"User": user,
+	})
+}
+
+func (h *Handler) DeleteDriver(c *gin.Context) {
+	user := h.getUser(c)
+
+	c.HTML(200, "deletedriver.html", gin.H{
+		"User": user,
+	})
+}
+
+func (h *Handler) DeleteKendaraan(c *gin.Context) {
+	user := h.getUser(c)
+
+	c.HTML(200, "deletekendaraan.html", gin.H{
+		"User": user,
+	})
+}
+
+func (h *Handler) DeleteDelivery(c *gin.Context) {
+	user := h.getUser(c)
+
+	c.HTML(200, "deletedelivery.html", gin.H{
+		"User": user,
+	})
+}
+
+func (h *Handler) AddStatusPost(c *gin.Context) {
+	// get data from form
+	status := c.PostForm("status")
+	noResi := c.PostForm("noresi")
+	alamatPenerima := c.PostForm("alamatpenerima")
+	namaPenerima := c.PostForm("namapenerima")
+	kurirId, err := strconv.Atoi(c.PostForm("kurirId"))
+	if err != nil {
+		fmt.Println(kurirId)
+		render.ErrMsgf(c, "/dstatus", "Kurir ID harus angka")
+	}
+	noHPKurir := c.PostForm("nohpkurir")
+	tanggalPembelian := c.PostForm("tanggalpembelian")
+	tanggalSampai := c.PostForm("tanggalsampai")
+
+	// save to database
+	deliverystatus := entity.Deliverystatus{
+		Status:           status,
+		NoResi:           noResi,
+		AlamatPenerima:   alamatPenerima,
+		NamaPenerima:     namaPenerima,
+		NoHPKurir:        noHPKurir,
+		TanggalPembelian: tanggalPembelian,
+		TanggalSampai:    tanggalSampai,
+	}
+
+	err = h.db.Create(&deliverystatus).Error
+	if err != nil {
+		render.ErrMsgf(c, "/dstatus", "Status gagal ditambahkan: %s", err.Error())
+	}
+	// redirect
+	render.Msgf(c, "/dstatus", "Status berhasil ditambahkan")
+}
+
+func (h *Handler) AddPelangganPost(c *gin.Context) {
+	// get data from form
+	nama := c.PostForm("nama")
+	alamat := c.PostForm("alamat")
+	noHP := c.PostForm("nohp")
+	email := c.PostForm("email")
+
+	// save to database
+	pelanggan := entity.Pelanggan{
+		Nama:    nama,
+		Email:   email,
+		Phone:   noHP,
+		Address: alamat,
+		UserId:  0,
+	}
+
+	err := h.db.Create(&pelanggan).Error
+	if err != nil {
+		render.ErrMsgf(c, "/mpelanggan", "Pelanggan gagal ditambahkan: %s", err.Error())
+	}
+	// redirect
+	render.Msgf(c, "/mpelanggan", "Pelanggan berhasil ditambahkan")
 }
