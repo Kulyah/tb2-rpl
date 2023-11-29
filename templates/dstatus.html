@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Manage Delivery</title>
+  <title>Delivery Status</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/css/mdelivery.css">
+  <link rel="stylesheet" href="/css/dstatus.css">
 </head>
 <body>
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-          <a class="navbar-brand" href="#">Delivery Management</a>
+          <a class="navbar-brand" href="#">Delivery Status</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -25,7 +25,7 @@
                   Manage
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownManage">
-                  <a class="dropdown-item" href="manageuser.html">Manage User</a>
+                  <a class="dropdown-item" href="#">Manage User</a>
                   <a class="dropdown-item" href="#">Manage Pelanggan</a>
                   <a class="dropdown-item" href="#">Manage Driver</a>
                   <a class="dropdown-item" href="#">Manage Kendaraan</a>
@@ -48,30 +48,31 @@
         </div>
       </nav>
 
-      <h1>Manage Delivery</h1>
-      <button class="add-btn">Add Delivery</button>
-      <div class="delivery-container">
-        <table class="delivery-table">
-          <thead>
-            <tr>
-              <th>ID Kendaraan</th>
-              <th>Nama Supir</th>
-              <th>No Resi</th>
-              <th>Alamat Penerima</th>
-              <th>Nama Penerima</th>
-              <th>Status Delivery</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            <!-- Delivery data will be displayed here -->
-          </tbody>
-        </table>
-      </div>
+  <h1>Delivery Status</h1>
+  <button class="add-btn">Add Status</button>
 
-<script src="/js/mdelivery.js"></script>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <div class="status-container">
+    <table class="status-table">
+      <thead>
+        <tr>
+          <th>ID Paket</th>
+          <th>No Resi</th>
+          <th>Alamat Penerima</th>
+          <th>Nama Penerima</th>
+          <th>Tanggal Pembelian</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Status data will be displayed here -->
+      </tbody>
+    </table>
+  </div>
+
+  <script src="/js/dstatus.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
