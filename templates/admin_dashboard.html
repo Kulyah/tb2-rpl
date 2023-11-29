@@ -3,66 +3,83 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin Dashboard</title>
-  <link rel="stylesheet" href="/css/dashboard.css">
+  <title>User Profile</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/profile.css">
 </head>
 <body>
-  <div class="dashboard-container">
-    <nav class="sidebar">
-      <ul>
-        <li><a href="#profile">Profile</a></li>
-        <li><a href="#dashboard">Dashboard</a></li>
-        <li><a href="#manage">Manage</a></li>
-        <li><a href="#delivery">Delivery</a></li>
-      </ul>
-    </nav>
 
-    <main class="content">
-      <section id="profile" class="dashboard-section">
-        <h2>Profile</h2>
-        <table id="myTable">
-          <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Action</th>
-          </tr>
-          <tr>
-            <td>John Doe</td>
-            <td>john@example.com</td>
-            <td><button onclick="deleteRow(this)">Delete</button></td>
-          </tr>
-        </table>
-        <button onclick="addRow()">Add Row</button>
-        
-      </section>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">Admin Profile</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="profile.html">Profile</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownManage" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Manage
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownManage">
+              <a class="dropdown-item" href="manageuser.html">Manage User</a>
+              <a class="dropdown-item" href="#">Manage Pelanggan</a>
+              <a class="dropdown-item" href="#">Manage Driver</a>
+              <a class="dropdown-item" href="#">Manage Kendaraan</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownDelivery" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Delivery
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownDelivery">
+              <a class="dropdown-item" href="#">Manage Delivery</a>
+              <a class="dropdown-item" href="#">Delivery Status</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-      <section id="dashboard" class="dashboard-section">
-        <h2>Dashboard - Package Delivery Status</h2>
-        <table class="dashboard-table">
-          <!-- Table content for package delivery status -->
-        </table>
-        <button onclick="addRow('dashboard-table')">Add Package</button>
-      </section>
+  <div class="container">
+    <div class="welcome-message">
+      <p class="welcome-text">Welcome <span id="userType">Admin</span></p>
+    </div>
 
-      <section id="manage" class="dashboard-section">
-        <h2>Manage</h2>
-        <!-- Manage content -->
-        <table class="manage-table">
-          <!-- Table content for managing drivers, users, packages -->
-        </table>
-        <button onclick="addRow('manage-table')">Add Entry</button>
-      </section>
-
-      <section id="delivery" class="dashboard-section">
-        <h2>Delivery - Manage Delivery Status</h2>
-        <table class="delivery-table">
-          <!-- Table content for managing delivery status -->
-        </table>
-        <button onclick="addRow('delivery-table')">Add Delivery</button>
-      </section>
-    </main>
+    <div class="profile-container">
+      <div class="profile">
+        <div class="profile-info">
+          <label for="profile-picture" class="profile-picture-label">
+            <img src="images/blank.png" alt="Profile Picture" class="profile-picture">
+            <input type="file" id="profile-picture" accept="image/*" style="display: none;" onchange="displayImage(this)">
+          </label>
+          <div class="info">
+            <button class="edit-btn" onclick="enableEdit()">Edit</button>
+            <button class="save-btn" onclick="saveChanges()">Save</button>
+            <form id="profileForm">
+              <label for="name">Name:</label>
+              <input type="text" id="name" value="Orion" disabled>
+              <label for="email">Email:</label>
+              <input type="email" id="email" value="yahihiu@gmail.com" disabled>
+              <label for="phone">Phone:</label>
+              <input type="tel" id="phone" value="0821586936" disabled>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <script src="/js/dashboard.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="/js/profile.js"></script>
 </body>
 </html>
