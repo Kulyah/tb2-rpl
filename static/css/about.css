@@ -1,0 +1,39 @@
+.feature{
+    text-align: left;
+}
+
+.sub{
+    font-size: 15px;
+    text-align: center;
+}
+.sub1{
+    font-size: 15px;
+    text-align: center;
+}
+.container {
+    max-width: 1000px; 
+    margin: 50px auto;
+    background-color: rgb(47, 151, 172); 
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+body {
+    display: inline;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.Team {
+    flex: 1;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+}
+
+.Team img {
+    max-width: 50%;
+    border-radius: 30%;
+    margin-bottom: 10px;
+}
