@@ -29,7 +29,7 @@ func main() {
 	// static files
 	app.Static("./css", "./static/css")
 	app.Static("./js", "./static/js")
-	app.Static("./img", "./static/img")
+	app.Static("./images", "./static/images")
 
 	// init database
 	db := db.InitDB()

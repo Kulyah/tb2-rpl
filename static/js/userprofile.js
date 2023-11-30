@@ -30,10 +30,10 @@ function displayImage(input) {
   }
   
   // Get the user type (admin/user) from your authentication system
-  const userType = 'Admin'; // Change this based on the logged-in user type
+  const userType1 = 'User'; // Change this based on the logged-in user type
   
   // Update the welcome message based on the user type
-  document.getElementById('userType').innerText = userType;
+  document.getElementById('userType').innerText = userType1;
   
   // profile.js (lanjutan)
   
