@@ -1,9 +1,12 @@
-
+body {
+    background-color: #f4f4f4;
+    /* Background color for the entire page */
+}
 
 .container {
     display: flex;
     justify-content: space-between;
-    background-color:rgb(47, 151, 172);    /* Background color for the contact us section */
+    /* Background color for the contact us section */
     padding: 20px;
     margin: 20px;
     border-radius: 8px;
@@ -12,8 +15,10 @@
 
 .contact-info {
     width: 45%;
+    background-color: #3498db;
     /* Adjust the width as needed */
 }
+
 
 .message-form {
     width: 45%;
