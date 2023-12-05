@@ -51,6 +51,120 @@ func (h *Handler) IndexPage(c *gin.Context) {
 	return
 }
 
+func (h *Handler) DeleteDelivery(c *gin.Context) {
+	id, err := strconv.Atoi(c.Query("id"))
+	fmt.Println(id)
+	if err != nil {
+		render.ErrMsgf(c, "/mdelivery", "ID harus angka")
+		return
+	}
+
+	deliverystatus := entity.Deliverystatus{}
+	err = h.db.Where("id = ?", id).First(&deliverystatus).Error
+	if err != nil {
+		render.ErrMsgf(c, "/mdelivery", "Delivery dengan id %d tidak ditemukan", id)
+		return
+	}
+
+	err = h.db.Delete(&deliverystatus).Error
+	if err != nil {
+		panic(err)
+	}
+
+	// redirect
+	render.Msgf(c, "/mdelivery", "Delivery berhasil dihapus")
+}
+
+func (h *Handler) AddDeliveryPost(c *gin.Context) {
+	// get data from form
+	status := c.PostForm("status")
+	noResi := c.PostForm("noresi")
+	alamatPenerima := c.PostForm("alamatpenerima")
+	namaPenerima := c.PostForm("namapenerima")
+	noHPPenerima := c.PostForm("nohppenerima")
+	kotaTujuan := c.PostForm("kotatujuan")
+	namaKurir := c.PostForm("namakurir")
+	kendaraanKurir := c.PostForm("kendaraankurir")
+	noHPKurir := c.PostForm("nohpkurir")
+	tanggalPembelian := c.PostForm("tanggalpembelian")
+	tanggalSampai := c.PostForm("tanggalsampai")
+
+	// save to database
+	deliverystatus := entity.Deliverystatus{
+		Status:           status,
+		NoResi:           noResi,
+		AlamatPenerima:   alamatPenerima,
+		NamaPenerima:     namaPenerima,
+		NoHPPenerima:     noHPPenerima,
+		KotaTujuan:       kotaTujuan,
+		NamaKurir:        namaKurir,
+		KendaraanKurir:   kendaraanKurir,
+		NoHPKurir:        noHPKurir,
+		TanggalPembelian: tanggalPembelian,
+		TanggalSampai:    tanggalSampai,
+	}
+
+	err := h.db.Create(&deliverystatus).Error
+	if err != nil {
+		render.ErrMsgf(c, "/mdelivery", "Delivery gagal ditambahkan: %s", err.Error())
+	}
+	// redirect
+	render.Msgf(c, "/mdelivery", "Delivery berhasil ditambahkan")
+}
+
+func (h *Handler) MUserAdminPost(c *gin.Context) {
+	name := c.PostForm("fullname")
+	email := c.PostForm("email")
+	phone := c.PostForm("phone")
+	role := c.PostForm("role")
+
+	user := entity.User{}
+	err := h.db.Where("email = ?", email).First(&user).Error
+	if err == nil {
+		render.ErrMsgf(c, "/muser_admin", "User dengan email %s sudah terdaftar", email)
+		return
+	}
+
+	// save to database
+	user = entity.User{
+		Name:  name,
+		Email: email,
+		Phone: phone,
+		Role:  role,
+	}
+	err = h.db.Create(&user).Error
+	if err != nil {
+		panic(err)
+	}
+
+	// redirect
+	render.Msgf(c, "/muser_admin", "Register berhasil")
+}
+
+func (h *Handler) DeleteUser(c *gin.Context) {
+	id, err := strconv.Atoi(c.Query("id"))
+	fmt.Println(id)
+	if err != nil {
+		render.ErrMsgf(c, "/muser_admin", "ID harus angka")
+		return
+	}
+
+	user := entity.User{}
+	err = h.db.Where("id = ?", id).First(&user).Error
+	if err != nil {
+		render.ErrMsgf(c, "/muser_admin", "User dengan id %d tidak ditemukan", id)
+		return
+	}
+
+	err = h.db.Delete(&user).Error
+	if err != nil {
+		panic(err)
+	}
+
+	// redirect
+	render.Msgf(c, "/muser_admin", "User berhasil dihapus")
+}
+
 // register handler post
 func (h *Handler) Register(c *gin.Context) {
 	// get data from form
@@ -144,7 +258,11 @@ func (h *Handler) MPackage(c *gin.Context) {
 
 // login page
 func (h *Handler) MUserAdmin(c *gin.Context) {
-	c.HTML(200, "muser_admin.html", nil)
+	users := []entity.User{}
+	h.db.Find(&users)
+	c.HTML(200, "muser_admin.html", gin.H{
+		"users": users,
+	})
 }
 
 // register page
@@ -252,8 +370,11 @@ func (h *Handler) MKendaraan(c *gin.Context) {
 func (h *Handler) MDelivery(c *gin.Context) {
 	user := h.getUser(c)
 
+	deliveries := []entity.Deliverystatus{}
+	h.db.Find(&deliveries)
 	c.HTML(200, "mdelivery.html", gin.H{
-		"User": user,
+		"User":       user,
+		"deliveries": deliveries,
 	})
 }
 
@@ -377,14 +498,6 @@ func (h *Handler) DeleteStatus(c *gin.Context) {
 	})
 }
 
-func (h *Handler) DeleteUser(c *gin.Context) {
-	user := h.getUser(c)
-
-	c.HTML(200, "deleteuser.html", gin.H{
-		"User": user,
-	})
-}
-
 func (h *Handler) DeletePelanggan(c *gin.Context) {
 	user := h.getUser(c)
 
@@ -405,14 +518,6 @@ func (h *Handler) DeleteKendaraan(c *gin.Context) {
 	user := h.getUser(c)
 
 	c.HTML(200, "deletekendaraan.html", gin.H{
-		"User": user,
-	})
-}
-
-func (h *Handler) DeleteDelivery(c *gin.Context) {
-	user := h.getUser(c)
-
-	c.HTML(200, "deletedelivery.html", gin.H{
 		"User": user,
 	})
 }

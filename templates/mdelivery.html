@@ -76,36 +76,70 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form id="userDataForm">
-                                <div class="form-group">
-                                    <label for="accountType">Jenis Account:</label>
-                                    <input type="text" class="form-control" id="accountType" name="accountType" required>
-                                </div>
-    
-                                <div class="form-group">
-                                    <label for="fullName">Full Name:</label>
-                                    <input type="text" class="form-control" id="fullName" name="fullName" required>
-                                </div>
-    
-                                <div class="form-group">
-                                    <label for="email">Email:</label>
-                                    <input type="email" class="form-control" id="email" name="email" required>
-                                </div>
-    
-                                <div class="form-group">
-                                    <label for="phone">No Hp:</label>
-                                    <input type="tel" class="form-control" id="phone" name="phone" required>
-                                </div>
-    
-                                <div class="form-group">
-                                    <label for="address">Address:</label>
-                                    <textarea class="form-control" id="address" name="address" required></textarea>
-                                </div>
+                            <form id="userDataForm" action="/adddelivery" method="post">
+                              <div class="form-group">
+                                <label for="noResi">No Resi:</label>
+                                <input type="text" class="form-control" id="noResi" name="noresi">
+                            </div>
+                    
+                            <div class="form-group">
+                                <label for="alamatPenerima">Alamat Penerima:</label>
+                                <input type="text" class="form-control" id="alamatPenerima" name="alamatpenerima" required>
+                            </div>
+                    
+                            <div class="form-group">
+                                <label for="namaPenerima">Nama Penerima:</label>
+                                <input type="text" class="form-control" id="namaPenerima" name="namapenerima" required>
+                            </div>
+                    
+                            <div class="form-group">
+                                <label for="noHPPenerima">No HP Penerima:</label>
+                                <input type="tel" class="form-control" id="noHPPenerima" name="nohppenerima" required>
+                            </div>
+                    
+                            <div class="form-group">
+                                <label for="kotaTujuan">Kota Tujuan:</label>
+                                <input type="text" class="form-control" id="kotaTujuan" name="kotatujuan" required>
+                            </div>
+                    
+                            <div class="form-group">
+                                <label for="namaKurir">Nama Kurir:</label>
+                                <input type="text" class="form-control" id="namaKurir" name="namakurir" required>
+                            </div>
+                    
+                            <div class="form-group">
+                                <label for="kendaraanKurir">Kendaraan Kurir:</label>
+                                <input type="text" class="form-control" id="kendaraanKurir" name="kendaraankurir" required>
+                            </div>
+                    
+                            <div class="form-group">
+                                <label for="noHPKurir">No HP Kurir:</label>
+                                <input type="tel" class="form-control" id="noHPKurir" name="nohpkurir" required>
+                            </div>
+                    
+                            <div class="form-group">
+                                <label for="tanggalPembelian">Tanggal Pembelian:</label>
+                                <input type="date" class="form-control" id="tanggalPembelian" name="tanggalpembelian" required>
+                            </div>
+                    
+                            <div class="form-group">
+                                <label for="tanggalSampai">Tanggal Sampai:</label>
+                                <input type="date" class="form-control" id="tanggalSampai" name="tanggalsampai" required>
+                            </div>
+                    
+                            <div class="form-group">
+                                <label for="status">Status:</label>
+                                <select class="form-control" id="status" name="status" required>
+                                    <option value="Sedang Disiapkan">Sedang Disiapkan</option>
+                                    <option value="Sedang Dikirim">Sedang Dikirim</option>
+                                    <option value="Sudah Sampai">Sudah Sampai</option>
+                                </select>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                              <button type="submit" class="btn btn-success" id="submitBtn">Submit</button>
+                          </div>
                             </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-success" id="submitBtn">Submit</button>
                         </div>
                     </div>
                 </div>
@@ -127,12 +161,40 @@
                     <th>Actions</th>
                   </tr>
                 </thead>
-                <tbody id="deliveryTableBody">
+                <tbody>
+                  {{ range .deliveries}}
+
+                  <tr>
+                    <td>{{.NoResi}}</td>
+                    <td>{{.NamaPenerima}}</td>
+                    <td>{{.AlamatPenerima}}</td>
+                    <td>{{.NoHPPenerima}}</td>
+                    <td>{{.KotaTujuan}}</td>
+                    <td>{{.NamaKurir}}</td>
+                    <td>{{.KendaraanKurir}}</td>
+                    <td>{{.NoHPKurir}}</td>
+                    <td>{{.TanggalPembelian}}</td>
+                    <td>{{.Status}}</td>
+                    <td>
+                      <a href="/deletedelivery?id={{.Model.ID}}"><button class="btn btn-danger">Delete</button></a>
+                    </td>
+                  </tr>
+                  {{end}}
                 </tbody>
               </table>
         </div>
         
     </section>
+
+    <script>
+      function uuidv4() {
+        return "10000000-1000-4000-8000-100000000000".replace(/[018]/g, c =>
+          (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
+        );
+      }
+
+      document.getElementsByName("noresi")[0].value = uuidv4();
+    </script>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

@@ -54,6 +54,19 @@ function addUserAdmin(newUserOrAdmin) {
     populateUserAdminTable(); // Update the table after addition
 }
 
+// Example usage
+document.getElementById('addButton').addEventListener('click', () => {
+    // Prompt user for new user or admin details (you might use a form for this)
+    const newUserOrAdmin = {
+        jenisAccount: prompt('Enter jenis account (User/Admin):'),
+        fullName: prompt('Enter full name:'),
+        email: prompt('Enter email:'),
+        noHp: prompt('Enter phone number:'),
+        address: prompt('Enter address:'), // Added address property
+    };
+
+    addUserAdmin(newUserOrAdmin);
+});
 
 // Initial population of the table
 populateUserAdminTable();
