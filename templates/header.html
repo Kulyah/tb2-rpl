@@ -1,47 +1,27 @@
 {{ define "header" }}
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
- <div class="container12345">
-    <a class="navbar-brand" href="admin_dashboard.html">UNIQ</a> <!-- Text Logo -->
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-toggle="collapse"
-      data-target="#navbarNav"
-      aria-controls="navbarNav"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link" href="admin_dashboard.html">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/dashboard">Delivery Prices</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/contact">Contact</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/about">About</a> <!-- Added About link -->
-        </li>
+<div class="preloader">
+  <div class="sk-spinner sk-spinner-rotating-plane"></div>
+   </div>
+<nav class="navbar navbar-default navbar-fixed-top templatemo-nav" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon icon-bar"></span>
+        <span class="icon icon-bar"></span>
+        <span class="icon icon-bar"></span>
+      </button>
+      <a href="#" class="navbar-brand"><img src="images/logo-bg.png"></a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav navbar-right text-uppercase">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#feature">Features</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#download">About Us</a></li>
+        <li><a href="#contact">Contact Us</a></li>
       </ul>
     </div>
-    {{ if not .User }}
-      <ul class="navbar-nav ml-auto"> <!-- Move Login/Register links to the right -->
-        <li class="nav-item">
-          <a class="nav-link" href="/login">Login</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/register">Register</a>
-        </li>
-      </ul>
-    {{ end }}
- </div>
+  </div>
 </nav>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 {{ end }}
