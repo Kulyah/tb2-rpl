@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/mpackage.css">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <title>Package Management Dashboard</title>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo-details">
+            <span class="logo_name">Admin Dashboard</span>
+        </div>
+        <ul class="nav-links">
+            <li>
+                <a href="dashboard_admin.html" class="active">
+                    <i class='bx bx-grid-alt'></i>
+                    <span class="links_name">Dashboard</span>
+                </a>
+            </li>
+
+            <li class="manage-data">
+                <a href="#">
+                    <i class='bx bx-book-alt'></i>
+                    <span class="links_name">Manage Data</span>
+                    <i class='bx bx-chevron-down'></i>
+                </a>
+                <ul class="sub-menu">
+                    <li><a href="/mdriver">Manage Driver</a></li>
+                    <li><a href="/mpackage">Manage Package</a></li>
+                    <li><a href="/muser_admin">Manage User And Admin</a></li>
+                    <li><a href="/mdelivery">Manage Delivery</a></li>
+                </ul>
+            </li>
+            <li class="log_out">
+                <a href="index.html">
+                    <i class='bx bx-log-out'></i>
+                    <span class="links_name">Log out</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <section class="home-section">
+        <nav>
+          <div class="sidebar-button">
+            <i class='bx bx-menu sidebarBtn'></i>
+            <span class="dashboard">Dashboard</span>
+          </div>
+          <div class="search-box">
+            <input type="text" placeholder="Search...">
+            <i class='bx bx-search' ></i>
+          </div>
+          <div class="profile-details" id="profileDetails">
+            <img src="images/blank.png" alt="">
+            <span class="admin_name">Admin 1</span>
+            <a href="profile.html" class="settings-btn"><i class='bx bx-cog'></i></a>
+        </div>
+      </nav>
+        </nav>
+
+        <div class="dashboard1">
+            <div class="table-controls">
+                <button id="addButton">Add</button>
+            </div>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Package Name</th>
+                        <th>Customer Name</th>
+                        <th>Customer Address</th>
+                        <th>Kota Tujuan</th>
+                        <th>Total Yang Dibeli</th>
+                        <th>Total Harga</th>
+                        <th>Tanggal Pembelian</th>
+                        <th>Status</th>
+
+                        <th>Action</th> 
+                    </tr>
+                </thead>
+                <tbody id="packageTableBody">
+
+                </tbody>
+            </table>
+        </div>
+        
+    </section>
+
+    <script src="js/mpackage.js"></script>
+</body>
+</html>

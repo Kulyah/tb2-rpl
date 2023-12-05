@@ -137,6 +137,16 @@ func (h *Handler) LoginPage(c *gin.Context) {
 	c.HTML(200, "login.html", nil)
 }
 
+// login page
+func (h *Handler) MPackage(c *gin.Context) {
+	c.HTML(200, "mpackage.html", nil)
+}
+
+// login page
+func (h *Handler) MUserAdmin(c *gin.Context) {
+	c.HTML(200, "muser_admin.html", nil)
+}
+
 // register page
 func (h *Handler) RegisterPage(c *gin.Context) {
 	c.HTML(200, "register.html", nil)
