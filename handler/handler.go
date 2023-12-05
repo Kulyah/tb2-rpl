@@ -39,7 +39,7 @@ func (h *Handler) IndexPage(c *gin.Context) {
 		})
 		return
 	} else if user.Role == "basic" {
-		c.HTML(200, "user_dashboard.html", gin.H{
+		c.HTML(200, "user_dash.html", gin.H{
 			"User": user,
 		})
 		return
@@ -115,11 +115,16 @@ func (h *Handler) AddDeliveryPost(c *gin.Context) {
 func (h *Handler) MUserAdminPost(c *gin.Context) {
 	name := c.PostForm("fullname")
 	email := c.PostForm("email")
-	phone := c.PostForm("phone")
+	password := c.PostForm("password")
+	hashedPassword, err := bcrypt.GenerateFromPassword([]byte(password), bcrypt.DefaultCost)
+	if err != nil {
+		panic(err)
+	}
+
 	role := c.PostForm("role")
 
 	user := entity.User{}
-	err := h.db.Where("email = ?", email).First(&user).Error
+	err = h.db.Where("email = ?", email).First(&user).Error
 	if err == nil {
 		render.ErrMsgf(c, "/muser_admin", "User dengan email %s sudah terdaftar", email)
 		return
@@ -127,10 +132,10 @@ func (h *Handler) MUserAdminPost(c *gin.Context) {
 
 	// save to database
 	user = entity.User{
-		Name:  name,
-		Email: email,
-		Phone: phone,
-		Role:  role,
+		Name:     name,
+		Email:    email,
+		Password: string(hashedPassword),
+		Role:     role,
 	}
 	err = h.db.Create(&user).Error
 	if err != nil {
@@ -246,6 +251,61 @@ func (h *Handler) Logout(c *gin.Context) {
 	c.Redirect(302, "/")
 }
 
+func (h *Handler) DeleteDriver(c *gin.Context) {
+	id, err := strconv.Atoi(c.Query("id"))
+	fmt.Println(id)
+	if err != nil {
+		render.ErrMsgf(c, "/mdriver", "ID harus angka")
+		return
+	}
+
+	driver := entity.Driver{}
+	err = h.db.Where("id = ?", id).First(&driver).Error
+	if err != nil {
+		render.ErrMsgf(c, "/mdriver", "Driver dengan id %d tidak ditemukan", id)
+		return
+	}
+
+	err = h.db.Delete(&driver).Error
+	if err != nil {
+		panic(err)
+	}
+
+	// redirect
+	render.Msgf(c, "/mdriver", "Driver berhasil dihapus")
+}
+
+func (h *Handler) AddDriverPost(c *gin.Context) {
+	// get data from form
+	driverName := c.PostForm("drivername")
+	driverID := c.PostForm("driverid")
+	driverCarPlat := c.PostForm("drivercarplat")
+	driverCarBrand := c.PostForm("drivercarbrand")
+	capacity := c.PostForm("capacity")
+
+	capacityInt, err := strconv.Atoi(capacity)
+	if err != nil {
+		fmt.Println(capacityInt)
+		render.ErrMsgf(c, "/mdriver", "Capacity harus angka")
+	}
+
+	// save to database
+	driver := entity.Driver{
+		DriverName:     driverName,
+		DriverID:       driverID,
+		DriverCarPlat:  driverCarPlat,
+		DriverCarBrand: driverCarBrand,
+		Capacity:       capacityInt,
+	}
+
+	err = h.db.Create(&driver).Error
+	if err != nil {
+		render.ErrMsgf(c, "/mdriver", "Driver gagal ditambahkan: %s", err.Error())
+	}
+	// redirect
+	render.Msgf(c, "/mdriver", "Driver berhasil ditambahkan")
+}
+
 // login page
 func (h *Handler) LoginPage(c *gin.Context) {
 	c.HTML(200, "login.html", nil)
@@ -358,8 +418,12 @@ func (h *Handler) MPelanggan(c *gin.Context) {
 func (h *Handler) MDriver(c *gin.Context) {
 	user := h.getUser(c)
 
+	drivers := []entity.Driver{}
+	h.db.Find(&drivers)
+
 	c.HTML(200, "mdriver.html", gin.H{
-		"User": user,
+		"User":    user,
+		"drivers": drivers,
 	})
 }
 
@@ -510,14 +574,6 @@ func (h *Handler) DeletePelanggan(c *gin.Context) {
 	})
 }
 
-func (h *Handler) DeleteDriver(c *gin.Context) {
-	user := h.getUser(c)
-
-	c.HTML(200, "deletedriver.html", gin.H{
-		"User": user,
-	})
-}
-
 func (h *Handler) DeleteKendaraan(c *gin.Context) {
 	user := h.getUser(c)
 
@@ -651,25 +707,4 @@ func (h *Handler) AddPelangganPost(c *gin.Context) {
 	}
 	// redirect
 	render.Msgf(c, "/mpelanggan", "Pelanggan berhasil ditambahkan")
-}
-
-func (h *Handler) AddDriverPost(c *gin.Context) {
-	// get data from form
-	nama := c.PostForm("nama")
-	alamat := c.PostForm("alamat")
-	phone := c.PostForm("phone")
-
-	// save to database
-	driver := entity.Driver{
-		NamaDriver: nama,
-		Phone:      phone,
-		Alamat:     alamat,
-	}
-
-	err := h.db.Create(&driver).Error
-	if err != nil {
-		render.ErrMsgf(c, "/mdriver", "Driver gagal ditambahkan: %s", err.Error())
-	}
-	// redirect
-	render.Msgf(c, "/mdriver", "Driver berhasil ditambahkan")
 }

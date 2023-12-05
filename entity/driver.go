@@ -4,8 +4,9 @@ import "github.com/jinzhu/gorm"
 
 type Driver struct {
 	gorm.Model
-	NamaDriver  string `gorm:"type:varchar(100)"`
-	KendaraanId int    `gorm:"type:int(100)"`
-	Phone       string `gorm:"type:varchar(100)"`
-	Alamat      string `gorm:"type:varchar(100)"`
+	DriverName     string `gorm:"type:varchar(100)"`
+	DriverID       string `gorm:"type:varchar(100)"`
+	DriverCarPlat  string `gorm:"type:varchar(100)"`
+	DriverCarBrand string `gorm:"type:varchar(100)"`
+	Capacity       int    `gorm:"type:int(100)"`
 }

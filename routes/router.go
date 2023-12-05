@@ -38,6 +38,8 @@ func Init(r *gin.Engine, db *gorm.DB) {
 	r.GET("/deletedelivery", handler.DeleteDelivery)
 	r.POST("/addpackage", handler.AddPackagePost)
 	r.GET("/deletepackage", handler.DeletePackage)
+	r.POST("/adddriver", handler.AddDriverPost)
+	r.GET("/deletedriver", handler.DeleteDriver)
 
 	// 404
 	r.NoRoute(func(c *gin.Context) {

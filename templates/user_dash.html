@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/userdash.css">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <title>Delivery Management Dashboard</title>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo-details">
+            <span class="logo_name">User Dashboard</span>
+        </div>
+        <ul class="nav-links">
+
+            <li class="manage-data">
+                <a href="#">
+                    <i class='bx bx-grid-alt'></i>
+                    <span class="links_name">Track Your Package</span>
+                </a>
+            </li>
+            <li class="log_out">
+                <a href="/logout">
+                    <i class='bx bx-log-out'></i>
+                    <span class="links_name">Log out</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <section class="home-section">
+        <nav>
+          <div class="sidebar-button">
+            <i class='bx bx-menu sidebarBtn'></i>
+            <span class="dashboard">Dashboard</span>
+          </div>
+          <div class="search-box">
+            <input type="text" placeholder="Search...">
+            <i class='bx bx-search' ></i>
+          </div>
+          <div class="profile-details" id="profileDetails">
+            <img src="images/blank.png" alt="">
+            <span class="admin_name">User</span>
+            <a href="profileuser.html" class="settings-btn"><i class='bx bx-cog'></i></a>
+        </div>
+      </nav>
+
+      <div class="dashboard1">
+        <div class="table-controls">
+            <button id="addButton">Add</button>
+        </div>
+        
+        <table>
+            <thead>
+              <tr>
+                <th>No Resi</th>
+                <th>Nama Pengirim</th>
+                <th>Alamat Penerima</th>
+                <th>Kota Tujuan</th>
+                <th>Driver</th>
+                <th>Kendaraan Driver</th>
+                <th>Ho HP Driver</th>
+                <th>Tanggal Pengiriman</th>
+                <th>Perkiraan Sampai</th>
+                <th>Track Package</th>
+              </tr>
+            </thead>
+            <tbody id="tableBodyId">
+            </tbody>
+          </table>
+    </div>
+    
+</section>
+
+<script src="js/userdash.js"></script>
+</body>
+</html>
