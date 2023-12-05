@@ -1,129 +1,244 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Admin Dashboard</title>
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    />
-    <link rel="stylesheet" href="/css/profile.css" />
-  </head>
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div class="container">
-        <a class="navbar-brand" href="admin_dashboard.html">Admin Profile</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item active">
-              <a class="nav-link" href="admin_dashboard.html">Profile</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                id="navbarDropdownManage"
-                role="button"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                Manage
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdownManage">
-                <a class="dropdown-item" href="/manageuser">Manage User</a>
-                <a class="dropdown-item" href="/mpelanggan">Manage Pelanggan</a>
-                <a class="dropdown-item" href="/mdriver">Manage Driver</a>
-                <a class="dropdown-item" href="/mkendaraan">Manage Kendaraan</a>
-              </div>
-            </li>
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                id="navbarDropdownDelivery"
-                role="button"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                Delivery
-              </a>
-              <div
-                class="dropdown-menu"
-                aria-labelledby="navbarDropdownDelivery"
-              >
-                <a class="dropdown-item" href="/mdelivery">Manage Delivery</a>
-                <a class="dropdown-item" href="/dstatus">Delivery Status</a>
-              </div>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/logout">Logout</a>
-            </li>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard Delivery</title>
+    <link rel="stylesheet" href="css/admin_dash.css">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+  <div class="sidebar">
+    <div class="logo-details">
+        <span class="logo_name">Admin Dashboard</span>
+    </div>
+    <ul class="nav-links">
+        <li>
+            <a href="dashboard_admin.html" class="active">
+                <i class='bx bx-grid-alt'></i>
+                <span class="links_name">Dashboard</span>
+            </a>
+        </li>
+        <li class="manage-data">
+            <a href="#">
+                <i class='bx bx-book-alt'></i>
+                <span class="links_name">Manage Data</span>
+                <i class='bx bx-chevron-down'></i>
+            </a>
+            <ul class="sub-menu">
+                <li><a href="/mdriver">Manage Driver</a></li>
+                <li><a href="mpackage.html">Manage Package</a></li>
+                <li><a href="muser_admin.html">Manage User And Admin</a></li>
+                <li><a href="/mdelivery">Manage Delivery</a></li>
+            </ul>
+        </li>
+        <li class="log_out">
+            <a href="index.html">
+                <i class='bx bx-log-out'></i>
+                <span class="links_name">Log out</span>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+  <section class="home-section">
+    <nav>
+      <div class="sidebar-button">
+        <i class='bx bx-menu sidebarBtn'></i>
+        <span class="dashboard">Dashboard</span>
+      </div>
+      <div class="search-box">
+        <input type="text" placeholder="Search...">
+        <i class='bx bx-search' ></i>
+      </div>
+      <div class="profile-details" id="profileDetails">
+        <img src="images/blank.png" alt="">
+        <span class="admin_name">Admin 1</span>
+        <a href="profile.html" class="settings-btn"><i class='bx bx-cog'></i></a>
+    </div>
+  </nav>
+
+    <div class="home-content">
+      <div class="overview-boxes">
+        <div class="box">
+          <div class="right-side">
+            <div class="box-topic">Total Delivery</div>
+            <div class="number">798</div>
+            <div class="indicator">
+              <i class='bx bx-up-arrow-alt'></i>
+              <span class="text">Up from yesterday</span>
+            </div>
+          </div>
+          <i class='bx bx-cart-alt cart'></i>
+        </div>
+        <div class="box">
+          <div class="right-side">
+            <div class="box-topic">Total Order</div>
+            <div class="number">862</div>
+            <div class="indicator">
+              <i class='bx bx-up-arrow-alt'></i>
+              <span class="text">Up from yesterday</span>
+            </div>
+          </div>
+          <i class='bx bxs-cart-add cart two' ></i>
+        </div>
+        <div class="box">
+          <div class="right-side">
+            <div class="box-topic">Total Profit</div>
+            <div class="number">12.988.290</div>
+            <div class="indicator">
+              <i class='bx bx-up-arrow-alt'></i>
+              <span class="text">Up from yesterday</span>
+            </div>
+          </div>
+          <i class='bx bx-cart cart three' ></i>
+        </div>
+        <div class="box">
+          <div class="right-side">
+            <div class="box-topic">Total Return</div>
+            <div class="number">89</div>
+            <div class="indicator">
+              <i class='bx bx-down-arrow-alt down'></i>
+              <span class="text">Down From Today</span>
+            </div>
+          </div>
+          <i class='bx bxs-cart-download cart four' ></i>
+        </div>
+      </div>
+
+      <div class="sales-boxes">
+        <div class="recent-sales box">
+          <div class="title">Recent Sales</div>
+          <div class="sales-details">
+            <ul class="details">
+              <li class="topic">Date</li>
+              <li><a href="#">05 Jan 2023</a></li>
+              <li><a href="#">12 Mar 2023</a></li>
+              <li><a href="#">14 Feb 2023</a></li>
+              <li><a href="#">25 Apr 2023</a></li>
+              <li><a href="#">21 Jul 2023</a></li>
+              <li><a href="#">07 Nov 2023</a></li>
+              <li><a href="#">29 Dec 2023</a></li>
+              <li><a href="#">26 Jun 2023</a></li>
+              <li><a href="#">04 Sep 2023</a></li>
+            </ul>
+            <ul class="details">
+            <li class="topic">Customer</li>
+            <li><a href="#">Panji Ludi</a></li>
+            <li><a href="#">David Putra</a></li>
+            <li><a href="#">Fami Wahyu</a></li>
+            <li><a href="#">Ojan Yando</a></li>
+            <li><a href="#">Rehan Suki</a></li>
+            <li><a href="#">Rizal Keanu</a></li>
+            <li><a href="#">Adam Absi</a></li>
+            <li><a href="#">Eja Lilah</a></li>
+             <li><a href="#">Dimas Sundi</a></li>
+          </ul>
+          <ul class="details">
+            <li class="topic">Sales</li>
+            <li><a href="#">Delivered</a></li>
+            <li><a href="#">Pending</a></li>
+            <li><a href="#">Returned</a></li>
+            <li><a href="#">Delivered</a></li>
+            <li><a href="#">Pending</a></li>
+            <li><a href="#">Returned</a></li>
+            <li><a href="#">Delivered</a></li>
+             <li><a href="#">Pending</a></li>
+            <li><a href="#">Delivered</a></li>
+          </ul>
+          <ul class="details">
+            <li class="topic">Total</li>
+            <li><a href="#">Rp.204.098</a></li>
+            <li><a href="#">Rp.248.585</a></li>
+            <li><a href="#">Rp.255.889</a></li>
+            <li><a href="#">Rp.170.616</a></li>
+            <li><a href="#">Rp.15.556</a></li>
+            <li><a href="#">Rp.44.965</a></li>
+            <li><a href="#">Rp.627.335</a></li>
+             <li><a href="#">Rp.223.563</a></li>
+             <li><a href="#">Rp.46.552</a></li>
+          </ul>
+          </div>
+
+          <div class="button">
+            <a href="#">See All</a>
+          </div>
+        </div>
+        <div class="top-sales box">
+          <div class="title">Recently Delivery</div>
+          <ul class="top-sales-details">
+            <li>
+            <a href="#">
+              <img src="images/sausage.jpeg" alt="">
+              <span class="product">Chicken Sausage</span>
+            </a>
+            <span class="price">838</span>
+          </li>
+          <li>
+            <a href="#">
+               <img src="images/ayammentah.jpg" alt="">
+              <span class="product">Ayam Mentah</span>
+            </a>
+            <span class="price">659</span>
+          </li>
+          <li>
+            <a href="#">
+             <img src="images/telur.jpg" alt="">
+              <span class="product">Telur Ayam</span>
+            </a>
+            <span class="price">759</span>
+          </li>
+          <li>
+            <a href="#">
+              <img src="images/ayamnegeri.jpg" alt="">
+              <span class="product">Ayam Negeri</span>
+            </a>
+            <span class="price">367</span>
+          </li>
+          <li>
+            <a href="#">
+              <img src="images/pakan.jpg" alt="">
+              <span class="product">Pakan Ternak Ayam</span>
+            </a>
+            <span class="price">895</span>
+          </li>
+          <li>
+            <a href="#">
+              <img src="images/tempura.jpeg" alt="">
+              <span class="product">Nugget Chicken Tempura</span>
+            </a>
+            <span class="price">964</span>
+          <li>
+            <a href="#">
+              <img src="images/ayamkampung.jpg" alt="">
+              <span class="product">Ayam Kampung</span>
+            </a>
+            <span class="price">125</span>
+          </li>
+          <li>
+            <a href="#">
+             <img src="images/karage.png" alt="">
+              <span class="product">Chicken Karage</span>
+            </a>
+            <span class="price">758</span>
+          </li>
           </ul>
         </div>
       </div>
-    </nav>
-
-    <div class="container">
-      <div class="welcome-message">
-        <p class="welcome-text">Welcome <span id="userType">Admin</span></p>
-      </div>
-
-      <div class="profile-container">
-        <div class="profile">
-          <div class="profile-info">
-            <label for="profile-picture" class="profile-picture-label">
-              <img
-                src="images/blank.png"
-                alt="Profile Picture"
-                class="profile-picture"
-              />
-              <input
-                type="file"
-                id="profile-picture"
-                accept="image/*"
-                style="display: none"
-                onchange="displayImage(this)"
-              />
-            </label>
-            <div class="info">
-              <button class="edit-btn" onclick="enableEdit()">Edit</button>
-              <button class="save-btn" onclick="saveChanges()">Save</button>
-              <form id="profileForm">
-                <label for="name">Name:</label>
-                <input type="text" id="name" value="{{.User.Name}}" disabled />
-                <label for="email">Email:</label>
-                <input
-                  type="email"
-                  id="email"
-                  value="{{ .User.Email }}"
-                  disabled
-                />
-                <label for="phone">Phone:</label>
-                <input type="tel" id="phone" value="{{ .User.Phone }}" disabled />
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
+  </section>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="/js/profile.js"></script>
-  </body>
+  <script>
+   let sidebar = document.querySelector(".sidebar");
+let sidebarBtn = document.querySelector(".sidebarBtn");
+sidebarBtn.onclick = function() {
+  sidebar.classList.toggle("active");
+  if(sidebar.classList.contains("active")){
+  sidebarBtn.classList.replace("bx-menu" ,"bx-menu-alt-right");
+}else
+  sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+}
+ </script>
+</body>
 </html>

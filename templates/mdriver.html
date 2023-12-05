@@ -1,76 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Manage Driver</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/css/mdriver.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/mdriver.css">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <title>Driver Management Dashboard</title>
 </head>
 <body>
+    <div class="sidebar">
+        <div class="logo-details">
+            <span class="logo_name">Admin Dashboard</span>
+        </div>
+        <ul class="nav-links">
+            <li>
+                <a href="dashboard_admin.html" class="active">
+                    <i class='bx bx-grid-alt'></i>
+                    <span class="links_name">Dashboard</span>
+                </a>
+            </li>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-          <a class="navbar-brand" href="#">Driver Management</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" href="/profile">Profile</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownManage" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Manage
+            <li class="manage-data">
+                <a href="#">
+                    <i class='bx bx-book-alt'></i>
+                    <span class="links_name">Manage Data</span>
+                    <i class='bx bx-chevron-down'></i>
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownManage">
-                  <a class="dropdown-item" href="#">Manage User</a>
-                  <a class="dropdown-item" href="/mpelanggan">Manage Pelanggan</a>
-                  <a class="dropdown-item" href="/mdriver">Manage Driver</a>
-                  <a class="dropdown-item" href="/mkendaraan">Manage Kendaraan</a>
-                </div>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownDelivery" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Delivery
+                <ul class="sub-menu">
+                    <li><a href="/mdriver">Manage Driver</a></li>
+                    <li><a href="mpackage.html">Manage Package</a></li>
+                    <li><a href="muser_admin.html">Manage User And Admin</a></li>
+                    <li><a href="/mdelivery">Manage Delivery</a></li>
+                </ul>
+            </li>
+            <li class="log_out">
+                <a href="index.html">
+                    <i class='bx bx-log-out'></i>
+                    <span class="links_name">Log out</span>
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownDelivery">
-                  <a class="dropdown-item" href="/mdelivery">Manage Delivery</a>
-                  <a class="dropdown-item" href="/dstatus">Delivery Status</a>
-                </div>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/logout">Logout</a>
-              </li>
-            </ul>
+            </li>
+        </ul>
+    </div>
+    
+    
+      <section class="home-section">
+        <nav>
+          <div class="sidebar-button">
+            <i class='bx bx-menu sidebarBtn'></i>
+            <span class="dashboard">Dashboard</span>
           </div>
+          <div class="search-box">
+            <input type="text" placeholder="Search...">
+            <i class='bx bx-search' ></i>
+          </div>
+          <div class="profile-details" id="profileDetails">
+            <img src="images/blank.png" alt="">
+            <span class="admin_name">Admin 1</span>
+            <a href="profile.html" class="settings-btn"><i class='bx bx-cog'></i></a>
         </div>
       </nav>
 
-  <h1>Manage Driver</h1>
-  <button class="add-btn">Add Driver</button>
-  <div class="driver-container">
-    <table class="driver-table">
-      <thead>
-        <tr>
-          <th>Nama Driver</th>
-          <th>Identification ID</th>
-          <th>ID Kendaraan</th>
-          <th>Phone</th>
-          <th>Home Address</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        <!-- Driver data will be displayed here -->
-      </tbody>
-    </table>
-  </div>
+      <div class="dashboard1">
+        <div class="table-controls">
+            <button id="addButton">Add</button>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Driver Name</th>
+                    <th>Driver ID</th>
+                    <th>Driver Car Plat</th>
+                    <th>Driver Car Brand</th>
+                    <th>Capacity</th>
+                    <th>Action</th> 
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
 
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <script src="/js/mdriver.js"></script>
+    <script src="js/mdriver.js"></script>
+    <script>
+        let sidebar = document.querySelector(".sidebar");
+     let sidebarBtn = document.querySelector(".sidebarBtn");
+     sidebarBtn.onclick = function() {
+       sidebar.classList.toggle("active");
+       if(sidebar.classList.contains("active")){
+       sidebarBtn.classList.replace("bx-menu" ,"bx-menu-alt-right");
+     }else
+       sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+     }
+      </script>
 </body>
 </html>
