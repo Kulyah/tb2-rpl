@@ -253,7 +253,11 @@ func (h *Handler) LoginPage(c *gin.Context) {
 
 // login page
 func (h *Handler) MPackage(c *gin.Context) {
-	c.HTML(200, "mpackage.html", nil)
+	packages := []entity.Package{}
+	h.db.Find(&packages)
+	c.HTML(200, "mpackage.html", gin.H{
+		"packages": packages,
+	})
 }
 
 // login page
@@ -520,6 +524,75 @@ func (h *Handler) DeleteKendaraan(c *gin.Context) {
 	c.HTML(200, "deletekendaraan.html", gin.H{
 		"User": user,
 	})
+}
+
+func (h *Handler) DeletePackage(c *gin.Context) {
+	id, err := strconv.Atoi(c.Query("id"))
+	fmt.Println(id)
+	if err != nil {
+		render.ErrMsgf(c, "/mpackage", "ID harus angka")
+		return
+	}
+
+	pack := entity.Package{}
+	err = h.db.Where("id = ?", id).First(&pack).Error
+	if err != nil {
+		render.ErrMsgf(c, "/mpackage", "Package dengan id %d tidak ditemukan", id)
+		return
+	}
+
+	err = h.db.Delete(&pack).Error
+	if err != nil {
+		render.ErrMsgf(c, "/mpackage", "Package gagal dihapus")
+		return
+	}
+
+	// redirect
+	render.Msgf(c, "/mpackage", "Package berhasil dihapus")
+}
+
+func (h *Handler) AddPackagePost(c *gin.Context) {
+	// Package Name	Customer Name	Customer Address	Kota Tujuan	Total Yang Dibeli	Total Harga	Tanggal Pembelian	Status
+	// get data from form
+	packageName := c.PostForm("packagename")
+	customerName := c.PostForm("customername")
+	customerAddress := c.PostForm("customeraddress")
+	kotaTujuan := c.PostForm("kotatujuan")
+	totalYangDibeli := c.PostForm("totalyangdibeli")
+	totalHarga := c.PostForm("totalharga")
+	tanggalPembelian := c.PostForm("tanggalpembelian")
+	status := c.PostForm("status")
+
+	totalDibeliInt, err := strconv.Atoi(totalYangDibeli)
+	if err != nil {
+		fmt.Println(totalDibeliInt)
+		render.ErrMsgf(c, "/mpackage", "Total yang dibeli harus angka")
+	}
+	totalHargaInt, err := strconv.Atoi(totalHarga)
+	if err != nil {
+		fmt.Println(totalHargaInt)
+		render.ErrMsgf(c, "/mpackage", "Total harga harus angka")
+	}
+
+	// save to database
+	pack := entity.Package{
+		PackageName:      packageName,
+		CustomerName:     customerName,
+		CustomerAddress:  customerAddress,
+		KotaTujuan:       kotaTujuan,
+		TotalYangDibeli:  totalDibeliInt,
+		TotalHarga:       totalHargaInt,
+		TanggalPembelian: tanggalPembelian,
+		Status:           status,
+	}
+
+	err = h.db.Create(&pack).Error
+	if err != nil {
+		render.ErrMsgf(c, "/mpackage", "Package gagal ditambahkan: %s", err.Error())
+	}
+
+	// redirect
+	render.Msgf(c, "/mpackage", "Package berhasil ditambahkan")
 }
 
 func (h *Handler) AddStatusPost(c *gin.Context) {

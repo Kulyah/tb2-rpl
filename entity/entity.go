@@ -8,4 +8,5 @@ func Init(db *gorm.DB) {
 	db.AutoMigrate(&Kendaraan{})
 	db.AutoMigrate(&Driver{})
 	db.AutoMigrate(&Pelanggan{})
+	db.AutoMigrate(&Package{})
 }
