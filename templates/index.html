@@ -1,44 +1,288 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Coal Industries</title>
-  <link rel="stylesheet" href="/css/style.css">
-  
-</head>
-<body>
-    {{ include "header" }}
-      
-  <div class="content">
-    <section id="home" class="section">
-      <div class="container">
-        <h2>Welcome to Coal Industries</h2>
-        <p>We provide high-quality coal for various industries.</p>
-      </div>
-    </section>
+	<head>
+		<meta charset="utf-8">
+		<title>Bisnis Ayam</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="">
+		<meta name="description" content="">
 
-    <section id="about" class="section">
-      <div class="container">
-        <h2>About Us</h2>
-        <p>We are committed to delivering sustainable and reliable coal solutions.</p>
-      </div>
-    </section>
+		<link rel="stylesheet" href="/css/animate.min.css">
+		<link rel="stylesheet" href="/css/bootstrap.min.css">
+		<link rel="stylesheet" href="/css/font-awesome.min.css">
 
-    <section id="contact" class="section">
-      <div class="container">
-        <h2>Contact Us</h2>
-        <p>Get in touch with us for inquiries and partnerships.</p>
-      </div>
-    </section>
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,700,800' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <section id="delivery" class="section">
-      <div class="container">
-        <h2>Delivery Price</h2>
-        <p>Our delivery pricing varies based on location and quantity. Contact us for more details.</p>
-      </div>
-    </section>
+		<link rel="stylesheet" href="/css/style.css">
 
-  <script src="js/script.js"></script>
-</body>
+	</head>
+	<body>
+
+		<div class="preloader">
+			<div class="sk-spinner sk-spinner-rotating-plane"></div>
+    	 </div>
+
+		 <div class="wrapper">
+			<nav class="nav">
+				<div class="nav-logo">
+					<p>Malindo Feedmill</p>
+				</div>
+				<div class="nav-menu" id="navMenu">
+					<ul>
+						<li><a href="#home" class="link">Home</a></li>
+						<li><a href="#feature" class="link">Feature</a></li>
+						<li><a href="#pricing" class="link">Pricing</a></li>
+						<li><a href="#aboutUs" class="link">About</a></li>
+						<li><a href="#contact" class="link">Contact</a></li>
+					</ul>
+				</div>
+				<div class="nav-button">
+					<button class="btn white-btn" onclick="location.href='/login'">Sign In</button>
+					<button class="btn" onclick="location.href='/register'">Sign Up</button>
+				</div>
+				<div class="nav-menu-btn">
+					<i class="bx bx-menu" onclick="myMenuFunction()"></i>
+				</div>
+			</nav>
+		</div>
+
+		<section id="home">
+			<div class="overlay">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-1"></div>
+						<div class="col-md-10 wow fadeIn" data-wow-delay="0.3s">
+							<h1 class="text-upper">Ayam Berkualiats</h1>
+							<p class="tm-white"> produk premium kami menggabungkan inovasi dan tradisi untuk memberikan yang terbaik di seluruh negeri, menghasilkan kualitas dengan layanan konsumen yang berorientasi pada kesempurnaan</p>
+							<img src="images/logo-bg.png" class="img-responsive" alt="home img">
+						</div>
+						<div class="col-md-1"></div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="divider">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-4 wow fadeInUp templatemo-box" data-wow-delay="0.3s">
+						<i class="fa-solid fa-sack-dollar fa-flip" style="color: #ff0000; font-size: 50px; "></i>
+
+						<h3 class="text-uppercase">Visi</h3>
+						<p>Menjadi perusahaan peternakan yang terdepan di pangsa pasar yang dipilih</p>
+					</div>
+					<div class="col-md-4 wow fadeInUp templatemo-box" data-wow-delay="0.3s">
+						<i class="fa-solid fa-money-bill-trend-up fa-flip" style="color: #ff0000; font-size: 50px; "></i>
+						<h3 class="text-uppercase">Misi</h3>
+						<p>Mengoptimalkan potensi kami untuk meningkatkan nilai bagi pemegang saham dan pemangku kepentingan lainnya.</p>
+					</div>
+					<div class="col-md-4 wow fadeInUp templatemo-box" data-wow-delay="0.3s">
+						<i class="fa-solid fa-graduation-cap fa-flip" style="color: #ff0000; font-size: 50px; "></i>
+						<h3 class="text-uppercase">Nilai</h3>
+						<p>Kerja Sama Tim yang Baik, Integritas, Kepuasan Pelanggan, Komitmen</p>
+					</div>
+				</div>
+			</div>
+		</section>
+	
+		<section id="feature">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6 wow fadeInLeft" data-wow-delay="0.6s">
+						<h2 class="text-uppercase">Our Company Features</h2>
+						<p>Bidang Peternakan</p>
+						<p><i class="fa-solid fa-wheat-awn fa-flip" style="color: #ff0000; font-size: 30px;"></i></i> Pembuatan Pakan Ternak</p>
+						<p><i class="fa-solid fa-drumstick-bite fa-bounce" style="color: rgb(255, 0, 0); font-size: 30px"></i> Ayam Ras Pedaging</p>
+						<p><i class="fa-solid fa-egg fa-beat" style="color: #ff0000; font-size: 30px"></i></i> Pembibitan Ayam</p>
+					</div>
+					<div class="col-md-6 wow fadeInRight" data-wow-delay="0.6s">
+						<img src="images/feature.jpg" class="img-responsive" alt="feature img">
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="feature1">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6 wow fadeInUp" data-wow-delay="0.6s">
+						<img src="images/feat1.jpg" class="img-responsive" alt="feature img">
+					</div>
+					<div class="col-md-6 wow fadeInUp" data-wow-delay="0.6s">
+						<h2 class="text-uppercase">More of Our Company</h2>
+						<p>Bidang Food</p>
+						<p><i class="fa-solid fa-bowl-food fa-bounce" style="color: #ff0000; font-size: 30px; "></i> Makanan Saji</p>
+						<p><i class="fa-solid fa-icicles fa-shake" style="color: #ff0000; font-size: 30px; "></i> Frozen Food</p>
+						<p><i class="fa-solid fa-icicles fa-shake" style="color: #ff0000; font-size: 30px; "></i> Raw Chicken</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="pricing">
+			<div class="container">
+				<div class="row">
+
+					<div class="col-md-8 wow fadeIn" data-wow-delay="0.6s">
+						<div class="pricing text-uppercase">
+							<h2 class="text-uppercase">Chicken Delivery Pricing</h2>
+							<form id="deliveryForm">
+
+								<div class="form-item">
+									<label for="recipientName">Nama Penerima:</label>
+									<input type="text" id="recipientName" name="recipientName" required>
+								</div>
+								<div class="form-item">
+									<label for="recipientAddress">Alamat Penerima:</label>
+									<input type="text" id="recipientAddress" name="recipientAddress" required>
+								</div>
+								<div class="form-item">
+									<label for="destinationCity">Kota Tujuan:</label>
+									<input type="text" id="destinationCity" name="destinationCity" required>
+								</div>
+								<div class="form-item">
+									<label for="deliveryDate">Tanggal Pengiriman:</label>
+									<input type="date" id="deliveryDate" name="deliveryDate" required>
+								</div>
+								<div class="form-item">
+									<label for="chickenWeight">Berat Ayam per Kilo:</label>
+									<input type="number" id="chickenWeight" name="chickenWeight" step="0.1" required>
+								</div>
+								<div class="form-item">
+									<button type="button" onclick="calculatePrice()">Hitung Harga Pengiriman</button>
+								</div>
+							</form>
+							<div id="priceResult"></div>
+						</div>
+					</div>
+
+					<div class="col-md-4">
+						<div class="description">
+							<h2>Ini Adalah Tabel Cek Biaya Ongkir Delivery Ayam</h2>
+							<h3>Ini Adalah Price Nya</h3>
+							<h3>Chicken Price per Kilo: Rp.30000</h3>
+							<h3>Delivery Tax per Kilo: Rp.5000</h3>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		
+		
+	
+
+		<section id="aboutUs">
+			<div class="container">
+				<div class="row">
+
+					<div class="col-md-6 wow fadeInLeft" data-wow-delay="0.6s">
+						<div class="card">
+							<img src="images/okky.jpeg " alt="Direktur Utama" class="img-responsive">
+							<h2 class="text-uppercase">Direktur Utama</h2>
+							<h4>Name : Okky Tri Wahyuda</h4>
+							<h4>Nim : 41522010114</h4>
+							<h4>Email : sonbit2312@gmail.com</h4>
+						</div>
+					</div>
+	
+
+					<div class="col-md-6 wow fadeInRight" data-wow-delay="0.6s">
+						<div class="card">
+							<img src="images/amay.jpeg" alt="Direktur Pengembangan Bisnis" class="img-responsive">
+							<h2 class="text-uppercase">Direktur Pengembangan</h2>
+							<h4>Name: Amar Panji Senjaya</h4>
+							<h4>Nim : 41522010088</h4>
+							<h4>Email: amaykece123@gmail.com</h4>
+						</div>
+					</div>
+	
+
+					<div class="col-md-6 wow fadeInLeft" data-wow-delay="0.6s">
+						<div class="card">
+							<img src="images/arjun.jpeg" alt="Direktur Keuangan" class="img-responsive">
+							<h2 class="text-uppercase">Direktur Keuangan</h2>
+							<h4>Name: Arjun Saputra</h4>
+							<h4>Nim : 41522010066</h4>
+							<h4>Email: arjuncogil2@gmail.com</h4>
+						</div>
+					</div>
+	
+
+					<div class="col-md-6 wow fadeInRight" data-wow-delay="0.6s">
+						<div class="card">
+							<img src="images/asrul.jpeg" alt="Dewan Komisaris" class="img-responsive">
+							<h2 class="text-uppercase">Dewan Komisaris</h2>
+							<h4>Name: Asrul Fami</h4>
+							<h4>Nim : 41522010123</h4>
+							<h4>Email: asrulwt1@gmail.com</h4>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+
+		<section id="contact">
+			<div class="overlay">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-6 wow fadeInUp" data-wow-delay="0.6s">
+							<h2 class="text-uppercase">Contact Us</h2>
+							<p>Silahkan untuk menyampaikan pertanyaan, komentar, atau keperluan bisnis yang Anda butuhkan.</p>
+							<address>
+								<i class="fa-solid fa-location-dot fa-bounce" style="color: #ff0000; font-size: 30px;"></i>
+								<p>Jl. RS Fatmawati No 15 Komplek Golden Plaza Blok G No.17 - 22 Jakarta Selatan, 12420.</p>
+								<i class="fa-solid fa-phone fa-bounce" style="color: #ff0000; font-size: 30px;"></i> 
+								<p>+62-21 766 1727 or +62-21 766 1728</p>
+								<i class="fa-solid fa-envelope fa-bounce" style="color: #ff0000; font-size: 30px;"></i>
+								<p>bibitindo@malindofeedmill.co.id</p>
+							</address>
+						</div>
+						<div class="col-md-6 wow fadeInUp" data-wow-delay="0.6s">
+							<div class="contact-form">
+								<form action="#" method="post">
+									<div class="col-md-6">
+										<input type="text" class="form-control" placeholder="Name">
+									</div>
+									<div class="col-md-6">
+										<input type="email" class="form-control" placeholder="Email">
+									</div>
+									<div class="col-md-12">
+										<input type="text" class="form-control" placeholder="Subject">
+									</div>
+									<div class="col-md-12">
+										<textarea class="form-control" placeholder="Message" rows="4"></textarea>
+									</div>
+									<div class="col-md-8">
+										<input type="submit" class="form-control text-uppercase" value="Send">
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.893350670539!2d106.79361267483658!3d-6.277750161451475!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f195059eee19%3A0x9cb8b7457770c410!2sPT.%20Malindo%20Feedmill%2C%20Tbk.!5e0!3m2!1sen!2sid!4v1701568909901!5m2!1sen!2sid" width="1520" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+		<footer>
+			<div class="container">
+				<div class="row">
+					<h4>Copyright <i class="fa-solid fa-copyright" style="color: #005eff; font-size: 20px;"></i> 2023 Malindo Feedmill</h4>
+				</div>
+			</div>
+		</footer>
+
+        
+		<script src="js/deliveryp.js"></script>
+		<script src="js/navbar.js"></script>
+		<script src="js/jquery.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/wow.min.js"></script>
+		<script src="js/jquery.singlePageNav.min.js"></script>
+		<script src="js/custom.js"></script>
+	</body>
 </html>

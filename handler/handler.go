@@ -464,3 +464,24 @@ func (h *Handler) AddPelangganPost(c *gin.Context) {
 	// redirect
 	render.Msgf(c, "/mpelanggan", "Pelanggan berhasil ditambahkan")
 }
+
+func (h *Handler) AddDriverPost(c *gin.Context) {
+	// get data from form
+	nama := c.PostForm("nama")
+	alamat := c.PostForm("alamat")
+	phone := c.PostForm("phone")
+
+	// save to database
+	driver := entity.Driver{
+		NamaDriver: nama,
+		Phone:      phone,
+		Alamat:     alamat,
+	}
+
+	err := h.db.Create(&driver).Error
+	if err != nil {
+		render.ErrMsgf(c, "/mdriver", "Driver gagal ditambahkan: %s", err.Error())
+	}
+	// redirect
+	render.Msgf(c, "/mdriver", "Driver berhasil ditambahkan")
+}
